@@ -278,7 +278,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 43px;
+  margin-bottom: 51px;
 }
 
 .signIn_modal input {
@@ -315,7 +315,6 @@ body {
 
 .signIn_modal button {
   color: #FFF;
-  font-family: Plus Jakarta Sans;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -323,7 +322,7 @@ body {
   border-radius: 6px;
   border: 1px solid #14F092;
   background: #181818;
-  width: 111px;
+  /* width: 111px; */
   padding: 5px 34px;
   white-space: nowrap;
   transition: .4s ease-in-out;
@@ -334,7 +333,8 @@ body {
   background: #14F092;
 }
 
-.signIn_modal p {
+.signIn_modal p,
+.signIn_modal p>a {
   color: #CDCDCD;
   font-size: 15px;
   font-style: normal;
@@ -344,12 +344,8 @@ body {
 
 .signIn_modal p>a {
   color: #14F092;
-  margin-left: 0px;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 160%;
   text-decoration: none;
+  margin-left: 0px;
 }
 
 .signIn_modal p>a:hover {
@@ -357,7 +353,7 @@ body {
 }
 
 .sign_in_btn {
-  margin-top: 68px;
+  margin-top: 63px;
 }
 
 .form-control:focus {
@@ -366,10 +362,67 @@ body {
   border-color: var(--website-grey-2, #747474) !important;
   outline: 0;
   box-shadow: none;
-
   outline: none !important;
 }
 
+.signIn_modal hr {
+  height: 0.5px;
+  color: #444;
+  /* margin-top: 68px; */
+  margin-bottom: 8px;
+}
+
+.signIn_modal h3 {
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.social_login {
+  margin-bottom: 18px;
+}
+
+.social_login a>img {
+  border-radius: 5px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.social_login a {
+  transition: .4s ease-in;
+}
+
+.social_login a:hover {
+  transform: scale(1.02);
+}
+
+.signIn_modal h6 {
+  color: #FFF;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.back_btn {
+  color: #747474;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-style: hidden !important;
+  margin-bottom: 20px;
+}
+
+.enter_code button:active {
+  border-style: hidden !important;
+}
 
 /*Sign_in Modal End */
 
@@ -654,7 +707,6 @@ body {
 .launch_app {
   padding-top: 14px;
   padding-bottom: 87px;
-  /* background-image: url('assets/image/visa-bg.png'); */
   background-image: url('../src/assets/image/lunch_app.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -853,7 +905,7 @@ body {
 
 
 .accordion-button::before {
-  background-image: url(" ../src/assets/image/plus.png") !important;
+  background-image: url("../src/assets/image/plus.png") !important;
 }
 
 .accordion-button::before {
@@ -1007,7 +1059,6 @@ footer .privacy {
   border-radius: 50px 0 0 50px;
 }
 
-
 .timeline_card:nth-child(even)::before {
   right: 0;
   top: 2px;
@@ -1016,19 +1067,10 @@ footer .privacy {
   border-radius: 0 50px 50px 0;
 }
 
-
-
 .timeline_card:first-child::before {
   border-top: 0;
   border-top-left-radius: 0;
 }
-
-
-.card:last-child:nth-child(odd)::before {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-}
-
 
 .timeline_card:last-child:before {
   left: 0px;
@@ -1136,10 +1178,12 @@ footer .privacy {
 }
 
 
+
 .free_pro .free {
   position: relative;
   margin-bottom: 100px;
 }
+
 
 .free_pro button {
   color: #FFF;
@@ -1678,6 +1722,8 @@ hr {
 /* custom radio button end */
 
 /* End Payment Page */
+
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -1691,3 +1737,682 @@ input[type="number"] {
 input:focus-visible {
   outline: none !important;
 }
+
+
+
+
+/* responsive css */
+
+/* Home page Start */
+@media only screen and (max-width: 1440px) {
+  .container_1 {
+    padding-left: 6.5%;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .section-timeline {
+    padding-left: 50px;
+  }
+}
+
+@media only screen and (max-width:1024px) {
+
+  .container_1 {
+    padding-left: 3.5%;
+  }
+
+  .timeline_card:nth-child(even)::before {
+    right: 3%;
+  }
+
+  .pricing {
+    padding-right: 20px;
+  }
+
+  .business {
+    padding-right: 20px;
+    top: -18px;
+  }
+
+  .crypto::before {
+    top: -35px;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .container_1 {
+    padding-left: 4%;
+  }
+
+
+  .timeline_card:nth-child(odd) {
+    padding: 63px 0 63px 30px;
+  }
+
+  .timeline_card:nth-child(even)::before {
+    right: 8%;
+  }
+
+  .pricing {
+    padding-right: 20px;
+  }
+
+  .business {
+    padding-right: 20px;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item:nth-child(2) {
+    margin-bottom: 208px;
+  }
+
+  .navbar-collapse {
+    margin-top: 45px;
+  }
+
+  .navbar-expand-lg {
+    background-color: black !important;
+  }
+
+  .navbar {
+    top: 0;
+    margin-bottom: 91px;
+    padding-top: 0px;
+  }
+
+  .signup_btn {
+    text-align: center;
+    background: #14F092;
+    transition: .4s ease-in-out;
+  }
+
+  .signup_btn:hover {
+    background: #0a9458;
+    border: 1px solid #0a9458;
+  }
+
+  .signIn_modal {
+    padding: 25px 20px;
+  }
+
+  .signIn_modal p,
+  .signIn_modal p>a {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .back_btn,
+  .signIn_modal h2,
+  .signIn_modal a,
+  .signIn_modal input::placeholder {
+    font-size: 14px;
+  }
+
+  .signIn_modal h6 {
+    font-size: 12px;
+  }
+
+  .sign_in_btn {
+    flex-wrap: wrap;
+  }
+
+  .sign_in_btn button {
+    text-align: start;
+    margin-bottom: 44px;
+  }
+
+  .signIn_modal hr {
+    margin-top: 8px;
+  }
+
+  .signIn_modal h3 {
+    margin-bottom: 20px;
+  }
+
+  .social_login {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0px;
+  }
+
+  .social_login img {
+    height: 23px;
+    width: 95px;
+  }
+
+  .signup_modal h3,
+  .signup_modal label {
+    font-size: 14px;
+  }
+
+
+  .continue_btn,
+  .userName_btn,
+  .pass_btn {
+    font-size: 10px;
+  }
+
+  .password h5 {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+
+  .enter_code h4,
+  .enter_code p,
+  .enter_code h6,
+  .enter_code a {
+    font-size: 14px;
+  }
+
+  .enter_code {
+    padding: 5px;
+  }
+
+  .enter_code input {
+    width: 26px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #181818;
+    flex-shrink: 0;
+  }
+
+  .enter_code_after h6,
+  .enter_code_after span>a {
+    font-size: 14px;
+  }
+
+  .enter_code_after p {
+    width: 124px;
+  }
+
+  .zark_front {
+    background-position: unset;
+    padding-top: 200px;
+    padding-bottom: 233px;
+  }
+
+  .banner h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .banner h6 {
+    margin-bottom: 10px !important;
+  }
+
+  .crypto::before {
+    top: -24px;
+  }
+
+  .launch_app {
+    padding-bottom: 129px;
+  }
+
+  .launch_app button {
+    font-size: 12px;
+    width: 170px;
+    height: 34px;
+    margin-bottom: 85px;
+  }
+
+  .launch_app button img {
+    height: 34px;
+  }
+
+  .launch_app .brand {
+    gap: 25px;
+  }
+
+  .launch_app .brand img {
+    height: 19px;
+  }
+
+  /* .title {
+      font-size: 12px;
+      margin-bottom: 12px;
+  } */
+
+  .content {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .socialmedia {
+    margin-bottom: 108px;
+  }
+
+  .faq {
+    margin-bottom: 99px;
+  }
+
+  .faq h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .faq p {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .faq .contact_btn {
+    margin-bottom: 36px;
+  }
+
+  .accordion-button {
+    font-size: 16px;
+  }
+
+  .accordion-body {
+    font-size: 14px;
+  }
+
+  /* time line */
+  .section-timeline {
+    padding-left: 35px;
+  }
+
+  .timeline_card:nth-child(odd)::before {
+
+    border-width: 0px 0 0px 2px;
+    border-radius: 0px;
+  }
+
+  .timeline_card:nth-child(even)::before {
+    left: -49.5%;
+    /* top: 3px;
+      bottom: 3px; */
+    border-width: 0px 2px 0px 0;
+    border-radius: 0;
+  }
+
+  .timeline_card:last-child::before {
+    bottom: 76px;
+  }
+
+  .pricing {
+    padding-left: 27px;
+    margin-top: 97px;
+    margin-bottom: 174px;
+  }
+
+
+  .business {
+    padding-left: 25px;
+    margin-bottom: 0px;
+  }
+
+  .pricing::before {
+    content: url("../src/assets/image/price_1.png");
+    position: absolute;
+    border-radius: 50%;
+    top: -21px;
+    transform: translateX(-95%);
+    background: #070707;
+    right: 85%;
+  }
+
+  .business::before {
+    content: url("../src/assets/image/b_1.png");
+    position: absolute;
+    border-radius: 50%;
+    top: -23px;
+    transform: translateX(-95%);
+    background: #070707;
+    right: 85%;
+  }
+
+  .socialmedia {
+    margin-top: 60px;
+  }
+
+  footer h6 {
+    margin-bottom: 51px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .pricing::before {
+    top: -21px;
+    right: 71%;
+  }
+
+  .business::before {
+
+    top: -23px;
+    right: 71%;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .pricing::before {
+    right: 67%;
+  }
+
+  .business::before {
+    right: 67%;
+  }
+}
+
+
+@media only screen and (max-width: 375px) {
+  /* .timeline_card:nth-child(even)::before {
+      left: -49.5%;
+  } */
+
+  .crypto::before {
+    left: 1%;
+    top: -4%;
+  }
+
+  .pricing::before {
+    top: -21px;
+    right: 64%;
+  }
+
+  .business::before {
+    content: url("../src/assets/image/b_1.png");
+    position: absolute;
+    border-radius: 50%;
+    top: -23px;
+    transform: translateX(-95%);
+    background: #070707;
+    right: 63%;
+  }
+
+}
+
+
+@media only screen and (max-width: 320px) {
+  .timeline_card:nth-child(even)::before {
+    left: -49.4%;
+  }
+
+  .crypto::before {
+    top: -20px;
+    left: 2%;
+  }
+
+  .business::before {
+    top: -20px;
+    right: 58%;
+  }
+
+  .pricing::before {
+    top: -20px;
+    right: 58%;
+  }
+}
+
+/* Home  Page End */
+
+/* Pricing Page Start */
+
+@media screen and (max-width:767px) {
+
+  .orange_border {
+    display: none;
+  }
+
+  .pricing_page {
+    padding-top: 182px;
+    padding-bottom: 300px;
+  }
+
+  .free_pro {
+    margin-bottom: 0;
+  }
+
+  .free_pro .options div {
+    margin-bottom: 16px;
+  }
+
+  .prc_banner h1 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .free_pro h1 {
+    font-size: 36px;
+  }
+
+  .free_pro h2 {
+    font-size: 32px;
+  }
+
+  .free_pro .free img {
+    position: static;
+  }
+
+  .free_pro button {
+    font-size: 20px;
+    padding: 13px 26px;
+    margin-top: 44px;
+    margin-bottom: 81px;
+  }
+
+  .socialmedia::before {
+    top: -12px;
+  }
+
+  .socialmedia .signUp button {
+    padding: 0 0;
+    width: 76px;
+  }
+
+}
+
+/* Pricing Page End */
+
+/* payment Page Start */
+
+
+@media only screen and (max-width: 767px) {
+  .turning_pro {
+    margin-top: 99px;
+  }
+
+  .turning_pro h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+
+  .payment h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .payment h3 {
+    font-size: 15px;
+    margin-bottom: 23px !important;
+  }
+
+  .payment button {
+    margin-bottom: 46px;
+  }
+
+  .off_btn {
+    margin-left: 19px;
+  }
+
+  .amount h6 {
+    font-size: 20px;
+    ;
+  }
+
+  .pay_box {
+    padding: 11px 10px;
+    margin-top: 17px;
+  }
+
+  .pay_box h3 {
+    font-size: 20px;
+  }
+
+  .amount p {
+    margin-bottom: 0;
+  }
+
+  .pay_box {
+    margin-bottom: 96px;
+  }
+
+  .payment h4 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .payment_option label {
+    margin-bottom: 28px;
+    font-size: 15px;
+  }
+
+  .payment_option {
+    margin-bottom: 43px;
+  }
+
+  .payment h5 {
+    font-size: 15px;
+    margin-bottom: 21px;
+  }
+
+  .payment img {
+    height: 38px;
+  }
+
+  .payment label img {
+    height: 23px;
+  }
+
+  .apple_pay_modal span {
+    font-size: 12px;
+  }
+
+  .apple_pay_modal p {
+    font-size: 12px;
+  }
+
+  .payable {
+    font-size: 15px;
+    margin-top: 9px;
+  }
+
+  .credit_card label {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .form_data {
+    margin-bottom: 28px;
+  }
+
+  .credit_card input {
+    padding: 8px;
+  }
+
+  .credit_card .form-select {
+    padding: 8px;
+  }
+
+  .billing_information h3 {
+    font-size: 24px;
+  }
+
+  .profile img {
+    height: 48px;
+    width: 48px;
+  }
+
+  /* .payment h4 {
+      font-size: 16px;
+      margin-bottom: 0px;
+  } */
+
+  .billing_information input::placeholder {
+    font-size: 14px;
+  }
+
+  .bill_input {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .submit_btn button {
+    margin-top: 0px;
+    padding: 14px 34px;
+    font-size: 16px;
+    margin-bottom: 63px;
+  }
+
+  .plan_header {
+    flex-direction: column;
+    align-items: start !important;
+  }
+
+  .plan_details h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .turning_pro h5 {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  .plan_details h4 {
+    font-size: 32px;
+  }
+
+  .plan_details {
+    padding: 36px 18px;
+  }
+
+  .plan_details p {
+    text-align: start !important;
+  }
+
+  .options h6 {
+    font-size: 14px !important;
+  }
+
+  .options img {
+    height: 28px;
+  }
+
+  hr {
+    margin-top: 12px;
+    margin-bottom: 12px;
+  }
+
+}
+
+@media only screen and (max-width: 320px) {
+  .off_btn {
+    margin-left: 0px;
+  }
+}
+
+/* Payment Fequently Page End */
+
+/* payment Page End */
