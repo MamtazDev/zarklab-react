@@ -10,28 +10,23 @@ const Home = () => {
   return (
     <div>
       <Banner />
-
-      <main>
-        <div className="section-timeline container">
-          <div className="timeline_card">
-            <CruptoChat />
-          </div>
-
-          {/* <!-- 2nd section for timeline --> */}
-          <div className="timeline_card">
-            <PriceManipulation />
-            <LiveBusiness />
-          </div>
-
-          {/* <!-- 3rd section for time line --> */}
-          <div className="timeline_card">
-            <SocialMedia />
-          </div>
+      <div className="section-timeline container">
+        <div className="timeline_card">
+          <CruptoChat />
         </div>
-        {/* <!-- End of time line --> */}
 
-        <Faq />
-      </main>
+        {/* <!-- 2nd section for timeline --> */}
+        <div className="timeline_card">
+          <PriceManipulation />
+          <LiveBusiness />
+        </div>
+
+        {/* <!-- 3rd section for time line --> */}
+        <div className="timeline_card">
+          <SocialMedia />
+        </div>
+      </div>
+      <Faq />
     </div>
   );
 };

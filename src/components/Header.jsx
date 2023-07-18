@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/image/logo.png";
 import nextArrow from "../assets/image/next-arrow.png";
 import signUp from "../assets/image/sign_up.png";
 import eye from "../assets/image/sign_up_pass_eye.png";
 import passArrow from "../assets/image/password_arrow.png";
 import code from "../assets/image/enter_code.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [addBg, setAddBg] = useState(false);
+
   return (
     <header>
-      <nav className="navbar navbar-expand-lg">
+      <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
         <div className="container">
-          <a className="navbar-brand" href="index.html">
+          <Link className="navbar-brand" to="/">
             <img src={logo} alt="" />
-          </a>
+          </Link>
           <button
+            onClick={() => setAddBg(!addBg)}
             className="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
             type="button"
             data-bs-toggle="collapse"
@@ -32,14 +36,13 @@ const Header = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a
+                <Link
                   className="nav-link d-flex align-items-center justify-content-between"
-                  aria-current="page"
-                  href="./pricing.html"
+                  to="./pricing"
                 >
                   Pricing{" "}
                   <img className="d-block d-md-none" src={nextArrow} alt="" />
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a
