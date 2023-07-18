@@ -4,6 +4,7 @@ import pro from "../assets/image/pro.png";
 import greenPoint from "../assets/image/green-point.png";
 import redPoint from "../assets/image/red-point.png";
 import rightArrow from "../assets/image/right-arrow.png";
+import { Link } from "react-router-dom";
 
 const FreePro = () => {
   return (
@@ -99,11 +100,11 @@ const FreePro = () => {
                 <h6>Advanced Filters and Customised Search</h6>
               </div>
             </div>
-            <a href=" ./payment.html">
+            <Link to="/payment">
               <button className="mb-5 mb-lg-0 d-flex gap-5 align-items-center">
                 Turn Pro Now <img src={rightArrow} alt="" />
               </button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
