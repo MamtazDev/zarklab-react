@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import applePay from "../assets/image/apple_pay.png";
 import paypal from "../assets/image/paypal.png";
 import applePayModal from "../assets/image/apple_pay_modal.png";
@@ -6,6 +6,18 @@ import done from "../assets/image/done.png";
 import profile from "../assets/image/profile_img.png";
 
 const Payment = () => {
+  const [showCredit, setShowCredit] = useState(false);
+  const [showPaypal, setShowPaypal] = useState(false);
+
+  const handleCredit = () => {
+    setShowCredit(true);
+    setShowPaypal(false);
+  };
+  const handlePaypal = () => {
+    setShowCredit(false);
+    setShowPaypal(true);
+  };
+
   return (
     <section className="turning_pro">
       <div className="container">
@@ -99,7 +111,7 @@ const Payment = () => {
                   </label>
                 </div>
 
-                <div>
+                <div onClick={handleCredit}>
                   <input
                     type="radio"
                     id="css"
@@ -113,7 +125,7 @@ const Payment = () => {
                   <br />
                 </div>
 
-                <div>
+                <div onClick={handlePaypal}>
                   <input
                     type="radio"
                     className="radio-custom-label"
@@ -211,122 +223,120 @@ const Payment = () => {
                 {/* <!-- Modal End --> */}
               </form>
             </div>
-
-            <div
-              className="credit_card"
-              id="ifRadio1"
-              style={{ display: "none" }}
-            >
-              <form action="">
-                <div className="form_data">
-                  <label className="form-label">Card Number</label>
-                  <input className="form-control w-100" type="text" name="" />
-                </div>
-
-                <div className="d-lg-flex justify-content-between">
+            {showCredit && (
+              <div className="credit_card">
+                <form action="">
                   <div className="form_data">
-                    <label className="form-label">
-                      Expiration Date (MM/ YY)
-                    </label>
-                    <div className="d-flex justify-content-between align-items-center gap-2 gap-lg-4">
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected></option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <p>/</p>
-                      <select
-                        className="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected></option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
+                    <label className="form-label">Card Number</label>
+                    <input className="form-control w-100" type="text" name="" />
+                  </div>
+
+                  <div className="d-lg-flex justify-content-between">
+                    <div className="form_data">
+                      <label className="form-label">
+                        Expiration Date (MM/ YY)
+                      </label>
+                      <div className="d-flex justify-content-between align-items-center gap-2 gap-lg-4">
+                        <select
+                          className="form-select"
+                          aria-label="Default select example"
+                        >
+                          <option selected></option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                        <p>/</p>
+                        <select
+                          className="form-select"
+                          aria-label="Default select example"
+                        >
+                          <option selected></option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="form_data">
+                      <label className="form-label">CVV/ CVC</label>
+                      <input className="form-control" type="number" name="" />
                     </div>
                   </div>
 
-                  <div className="form_data">
-                    <label className="form-label">CVV/ CVC</label>
-                    <input className="form-control" type="number" name="" />
-                  </div>
-                </div>
+                  <div className="billing_information">
+                    <h3>Billing information</h3>
+                    <p>Please confirm your billing details to proceed. </p>
 
-                <div className="billing_information">
-                  <h3>Billing information</h3>
-                  <p>Please confirm your billing details to proceed. </p>
+                    <div className="profile d-flex gap-4">
+                      <img src={profile} alt="" />
+                      <div>
+                        <h4>Penzie</h4>
+                        <p>Personal Account</p>
+                      </div>
+                    </div>
 
-                  <div className="profile d-flex gap-4">
-                    <img src={profile} alt="" />
-                    <div>
-                      <h4>Penzie</h4>
-                      <p>Personal Account</p>
+                    <div className="d-flex bill_input">
+                      <input
+                        className="form-control"
+                        type="text"
+                        name=""
+                        placeholder="First Name*"
+                      />
+                      <input
+                        className="form-control"
+                        type="text"
+                        name=""
+                        placeholder="Last Name*"
+                      />
+                    </div>
+
+                    <input
+                      className="form-control"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Address (P.O. box, company name, c/o)*"
+                    />
+                    <input
+                      className="form-control"
+                      type="text"
+                      name=""
+                      id=""
+                      placeholder="Address line 2 (Apartment, suite, unit)"
+                    />
+
+                    <div className="d-flex bill_input">
+                      <input
+                        className="form-control"
+                        type="text"
+                        name=""
+                        placeholder="Postal Code*"
+                      />
+                      <input
+                        className="form-control"
+                        type="text"
+                        name=""
+                        placeholder="Country*"
+                      />
                     </div>
                   </div>
 
-                  <div className="d-flex bill_input">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name=""
-                      placeholder="First Name*"
-                    />
-                    <input
-                      className="form-control"
-                      type="text"
-                      name=""
-                      placeholder="Last Name*"
-                    />
+                  <div className="submit_btn">
+                    <button type="submit">Pay Now</button>
                   </div>
-
-                  <input
-                    className="form-control"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Address (P.O. box, company name, c/o)*"
-                  />
-                  <input
-                    className="form-control"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Address line 2 (Apartment, suite, unit)"
-                  />
-
-                  <div className="d-flex bill_input">
-                    <input
-                      className="form-control"
-                      type="text"
-                      name=""
-                      placeholder="Postal Code*"
-                    />
-                    <input
-                      className="form-control"
-                      type="text"
-                      name=""
-                      placeholder="Country*"
-                    />
-                  </div>
-                </div>
-
-                <div className="submit_btn">
-                  <button type="submit">Pay Now</button>
-                </div>
-              </form>
-            </div>
-
-            <div className="paypal" id="ifRadio2" style={{ display: "none" }}>
-              <h5>Sign in to PayPal</h5>
-              <a href="#" target="_blank">
-                <img src={paypal} alt="" />
-              </a>
-            </div>
+                </form>
+              </div>
+            )}
+            {showPaypal && (
+              <div className="paypal">
+                <h5>Sign in to PayPal</h5>
+                <a href="#" target="_blank">
+                  <img src={paypal} alt="" />
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
