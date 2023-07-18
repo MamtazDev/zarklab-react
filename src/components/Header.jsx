@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../assets/image/logo.png";
 import nextArrow from "../assets/image/next-arrow.png";
 import signUp from "../assets/image/sign_up.png";
@@ -17,6 +17,43 @@ const Header = () => {
   const [createPassword, setCreatePassword] = useState(false);
   const [userName, setUserName] = useState(false);
 
+  // const [value, setValue] = useState('');
+
+  // const handleChange = (e) => {
+  //   const inputValue = e.target.value;
+  //   const singleNumber = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+
+  //   if (singleNumber.length <= 1) {
+  //     setValue(singleNumber);
+  //   }
+  // };
+
+  const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
+  const inputRefs = useRef([]);
+
+  const handleChange = (index, value) => {
+    if (value.length > 1) {
+      return; // Do not update if the value exceeds one character
+    }
+
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+
+    // Focus on the next input field
+    if (value !== "" && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1].focus();
+    }
+  };
+
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && index > 0 && otp[index] === "") {
+      // Focus on the previous input field when Backspace is pressed
+      inputRefs.current[index - 1].focus();
+    }
+  };
+
+  console.log(otp);
   return (
     <header>
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
@@ -375,15 +412,19 @@ const Header = () => {
                       <img src={code} alt="" />
                       <h4>Enter Code</h4>
                     </div>
-                    <div className="d-flex gap-2 mb-5">
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
+
+                    <div className="otp-input d-flex gap-2 mb-5">
+                      {otp.map((digit, index) => (
+                        <input
+                          key={index}
+                          type="number"
+                          maxLength="1"
+                          value={digit}
+                          onChange={(e) => handleChange(index, e.target.value)}
+                          onKeyDown={(e) => handleKeyDown(index, e)}
+                          ref={(ref) => (inputRefs.current[index] = ref)}
+                        />
+                      ))}
                     </div>
 
                     <div className="d-flex justify-content-between align-items-center">
@@ -413,15 +454,18 @@ const Header = () => {
                       <img src={code} alt="" />
                       <h4>Enter Code</h4>
                     </div>
-                    <div className="d-flex gap-2 mb-5">
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
-                      <input type="number" name="" id="" maxLength="1" />
+                    <div className="otp-input d-flex gap-2 mb-5">
+                      {otp.map((digit, index) => (
+                        <input
+                          key={index}
+                          type="number"
+                          maxLength="1"
+                          value={digit}
+                          onChange={(e) => handleChange(index, e.target.value)}
+                          onKeyDown={(e) => handleKeyDown(index, e)}
+                          ref={(ref) => (inputRefs.current[index] = ref)}
+                        />
+                      ))}
                     </div>
                     <div className="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-lg-5 gap-3">
                       <div>
