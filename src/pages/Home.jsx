@@ -1,0 +1,39 @@
+import React from "react";
+import Faq from "../components/Faq";
+import Banner from "../components/Banner";
+import CruptoChat from "../components/CruptoChat";
+import PriceManipulation from "../components/PriceManipulation";
+import LiveBusiness from "../components/LiveBusiness";
+import SocialMedia from "../components/SocialMedia";
+
+const Home = () => {
+  return (
+    <div>
+      <Banner />
+
+      <main>
+        <div className="section-timeline container">
+          <div className="timeline_card">
+            <CruptoChat />
+          </div>
+
+          {/* <!-- 2nd section for timeline --> */}
+          <div className="timeline_card">
+            <PriceManipulation />
+            <LiveBusiness />
+          </div>
+
+          {/* <!-- 3rd section for time line --> */}
+          <div className="timeline_card">
+            <SocialMedia />
+          </div>
+        </div>
+        {/* <!-- End of time line --> */}
+
+        <Faq />
+      </main>
+    </div>
+  );
+};
+
+export default Home;
