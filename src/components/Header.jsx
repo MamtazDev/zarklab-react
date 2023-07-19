@@ -104,7 +104,7 @@ const Header = () => {
             <img src={logo} alt="" />
           </Link>
           <button
-            ref={hamburgerRef}
+            // ref={hamburgerRef}
             onClick={() => setAddBg(!addBg)}
             className="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
             type="button"

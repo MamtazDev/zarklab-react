@@ -1355,14 +1355,14 @@ footer .privacy {
   color: #fff !important;
 }
 
-.off_btn {
+/* .off_btn {
   margin-left: 30px;
-}
+} */
 
-.payment button:hover {
+/* .payment button:hover {
   border: 1px solid #FFC459 !important;
   color: #fff;
-}
+} */
 
 .amount h6 {
   color: #FFF;

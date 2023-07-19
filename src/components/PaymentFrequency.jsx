@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PaymentFrequency = () => {
+  const [duration, setDuration] = useState("monthly");
   return (
     <div className="payment">
       <h1>Payment Frequency</h1>
       <h3>Decide when you get billed</h3>
-      <button className="active">Pay monthly</button>
-      <button className="off_btn">Pay yearly | Get 20% off</button>
+
+      <button
+        onClick={() => setDuration("monthly")}
+        className={duration === "monthly" ? "active me-4" : "off_btn me-4"}
+      >
+        Pay monthly
+      </button>
+      <button
+        onClick={() => setDuration("yearly")}
+        className={duration === "yearly" ? "active" : "off_btn"}
+      >
+        Pay yearly | Get 20% off
+      </button>
 
       <div className="amount">
         <div className="d-flex justify-content-between align-items-center">
           <h6>Total Amount</h6>
-          <p className="d-none d-lg-block">$16.67/ month</p>
+          <p className="d-none d-lg-block">
+            $16.67/ {duration === "month" ? "month" : "year"}
+          </p>
         </div>
         <div className="d-flex justify-content-between align-items-center pay_box">
           <p>Payment due Jul 21, 2023</p>
