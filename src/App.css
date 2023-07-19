@@ -1816,10 +1816,6 @@ input:focus-visible {
     margin-top: 45px;
   }
 
-  .navbar-expand-lg {
-    background-color: black !important;
-  }
-
   .navbar {
     top: 0;
     margin-bottom: 91px;
