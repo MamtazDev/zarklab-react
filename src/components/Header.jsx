@@ -17,17 +17,6 @@ const Header = () => {
   const [createPassword, setCreatePassword] = useState(false);
   const [userName, setUserName] = useState(false);
 
-  // const [value, setValue] = useState('');
-
-  // const handleChange = (e) => {
-  //   const inputValue = e.target.value;
-  //   const singleNumber = inputValue.replace(/[^0-9]/g, ''); // Remove non-numeric characters
-
-  //   if (singleNumber.length <= 1) {
-  //     setValue(singleNumber);
-  //   }
-  // };
-
   const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
@@ -53,7 +42,7 @@ const Header = () => {
     }
   };
 
-  console.log(otp);
+  const isFilled = otp.every((digit) => digit !== "");
   return (
     <header>
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
@@ -300,7 +289,7 @@ const Header = () => {
                         </div>
                         <p
                           onClick={() => setCreatePassword(true)}
-                          className="continue_btn"
+                          className={createPassword ? "d-none" : "continue_btn"}
                         >
                           Continue
                         </p>
@@ -348,7 +337,7 @@ const Header = () => {
                             </div>
                           </div>
                           <p
-                            className="pass_btn"
+                            className={userName ? "d-none" : "pass_btn"}
                             onClick={() => setUserName(true)}
                           >
                             Continue
@@ -393,20 +382,34 @@ const Header = () => {
               )}
               {modalStep === 2 && (
                 <div className="enter_code">
-                  <button
-                    onClick={() => setModalStep(1)}
-                    className="bg-transparent border-none back_btn"
-                  >
-                    <img src={back} alt="" style={{ marginRight: "15px" }} />{" "}
-                    Back
-                  </button>
-                  <div className="d-flex align-items-center mb-2">
-                    <h4>Verify your account </h4>
-                  </div>
-                  <p className="mb-5">
-                    Almost there! We’ve sent a code to{" "}
-                    <span>penelope@zarklab.ai</span>{" "}
-                  </p>
+                  {isFilled && (
+                    <div className="enter_code_after">
+                      <h4 className=" mb-5">You’re Set to Go!</h4>
+                    </div>
+                  )}
+                  {!isFilled && (
+                    <>
+                      <button
+                        onClick={() => setModalStep(1)}
+                        className="bg-transparent border-none back_btn"
+                      >
+                        <img
+                          src={back}
+                          alt=""
+                          style={{ marginRight: "15px" }}
+                        />{" "}
+                        Back
+                      </button>
+                      <div className="d-flex align-items-center mb-2">
+                        <h4>Verify your account </h4>
+                      </div>
+                      <p className="mb-5">
+                        Almost there! We’ve sent a code to{" "}
+                        <span>penelope@zarklab.ai</span>{" "}
+                      </p>
+                    </>
+                  )}
+
                   <form action="">
                     <div className="d-flex align-items-center mb-4">
                       <img src={code} alt="" />
@@ -427,7 +430,7 @@ const Header = () => {
                       ))}
                     </div>
 
-                    <div className="d-flex justify-content-between align-items-center">
+                    {!isFilled && (
                       <div>
                         <h6>Didn’t receive the code?</h6>
                         <h6>
@@ -435,20 +438,25 @@ const Header = () => {
                           <a href="">update your email address</a>
                         </h6>
                       </div>
-                      <p
-                        onClick={() => setModalStep(3)}
-                        className="userName_btn"
-                      >
-                        Continue
-                      </p>
-                    </div>
+                    )}
+
+                    {isFilled && (
+                      <div className="enter_code_after d-flex flex-column flex-lg-row align-items-center justify-content-center gap-lg-5 gap-3">
+                        <div>
+                          <h6>Enter ZarkLab Now</h6>
+                          <p></p>
+                        </div>
+                        <span>
+                          <Link to="/payment">Upgrade Plan</Link>
+                        </span>
+                      </div>
+                    )}
                   </form>
                 </div>
               )}
 
               {modalStep === 3 && (
                 <div className="enter_code enter_code_after">
-                  <h4 className="mb-5">You’re Set to Go!</h4>
                   <form action="">
                     <div className="d-flex align-items-center mb-4">
                       <img src={code} alt="" />
@@ -466,15 +474,6 @@ const Header = () => {
                           ref={(ref) => (inputRefs.current[index] = ref)}
                         />
                       ))}
-                    </div>
-                    <div className="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-lg-5 gap-3">
-                      <div>
-                        <h6>Enter ZarkLab Now</h6>
-                        <p></p>
-                      </div>
-                      <span>
-                        <Link to="/payment">Upgrade Plan</Link>
-                      </span>
                     </div>
                   </form>
                 </div>
