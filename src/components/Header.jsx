@@ -522,14 +522,8 @@ const Header = () => {
                           <h6>Enter ZarkLab Now</h6>
                           <p></p>
                         </div>
-                        <span>
-                          <Link
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                            to="/payment"
-                          >
-                            Upgrade Plan
-                          </Link>
+                        <span data-bs-dismiss="modal" aria-label="Close">
+                          <Link to="/payment">Upgrade Plan</Link>
                         </span>
                       </div>
                     )}

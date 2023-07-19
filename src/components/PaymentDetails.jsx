@@ -129,7 +129,12 @@ const PaymentDetails = () => {
                       </div>
                     </div>
                     <hr />
-                    <div className="done text-center">
+                    <div
+                      style={{ cursor: "pointer" }}
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      className="done text-center"
+                    >
                       <img className="img-fluid center" src={done} alt="" />
                       <br />
                       <span>Done</span>
@@ -227,7 +232,7 @@ const PaymentDetails = () => {
               <div className="d-flex bill_input">
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   name=""
                   placeholder="Postal Code*"
                 />

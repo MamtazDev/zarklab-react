@@ -1717,13 +1717,12 @@ hr {
 
 .payment_option form input:checked:first-child~.ipayClass img {
   border: 1px solid #14F092;
+  border-radius: 5px;
 }
 
 /* custom radio button end */
 
 /* End Payment Page */
-
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
