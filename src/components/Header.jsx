@@ -22,6 +22,8 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
 
+  const hamburgerRef = useRef();
+
   // otp code fill up activity
   const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
@@ -102,6 +104,7 @@ const Header = () => {
             <img src={logo} alt="" />
           </Link>
           <button
+            ref={hamburgerRef}
             onClick={() => setAddBg(!addBg)}
             className="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around"
             type="button"
@@ -119,17 +122,23 @@ const Header = () => {
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
-              <li      className="nav-item">
+              <li className="nav-item">
                 <Link
+                  onClick={() => {
+                    hamburgerRef.current.click();
+                  }}
                   className="nav-link d-flex align-items-center justify-content-between"
                   to="/pricing"
                 >
-                  Pricing{" "}
+                  Pricing
                   <img className="d-block d-md-none" src={nextArrow} alt="" />
                 </Link>
               </li>
               <li className="nav-item">
                 <a
+                  onClick={() => {
+                    hamburgerRef.current.click();
+                  }}
                   className="nav-link d-flex align-items-center justify-content-between"
                   aria-current="page"
                   href=""
@@ -142,6 +151,9 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <a
+                  onClick={() => {
+                    hamburgerRef.current.click();
+                  }}
                   className="nav-link signup_btn"
                   href="#"
                   data-bs-toggle="modal"
