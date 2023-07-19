@@ -5,7 +5,8 @@ import signUp from "../assets/image/sign_up.png";
 import metamask from "../assets/image/metamask.png";
 import google from "../assets/image/google.png";
 import fb from "../assets/image/fb.png";
-import eye from "../assets/image/sign_up_pass_eye.png";
+import eye from "../assets/image/password_eye.png";
+import grayeye from "../assets/image/sign_up_pass_eye.png";
 import code from "../assets/image/enter_code.png";
 import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
@@ -16,7 +17,7 @@ const Header = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [createPassword, setCreatePassword] = useState(false);
   const [userName, setUserName] = useState(false);
-
+  // otp code fill up activity
   const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
@@ -43,6 +44,40 @@ const Header = () => {
   };
 
   const isFilled = otp.every((digit) => digit !== "");
+
+  // password validation part
+  const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(false);
+
+  const handlePasswordChange = (event) => {
+    const value = event.target.value;
+    setPassword(value);
+    setIsValid(validatePassword(value));
+  };
+
+  const validatePassword = (value) => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(value);
+  };
+
+  const getPasswordStrengthLabel = (value) => {
+    if (value.length === 0) {
+      return "Please enter a password";
+    } else if (value.length < 6) {
+      return "Password is weak";
+    } else if (value.length < 8) {
+      return "Password is medium";
+    } else if (value.length === 8 && !isValid) {
+      return "Invalid password";
+    } else if (value.length === 8 && isValid) {
+      return "Password is strong";
+    } else {
+      return "Invalid password";
+    }
+  };
+
+  const passwordStrengthLabel = getPasswordStrengthLabel(password);
+
   return (
     <header>
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
@@ -132,16 +167,14 @@ const Header = () => {
                     <img src={signUp} alt="" />
                     <input
                       className="form-control"
-                      type="password"
-                      name=""
-                      id="passwordInput"
+                      type={showPassword ? "text" : "password"}
                       placeholder="*******"
                     />
                     <img
+                      onClick={() => setShowPassword(!showPassword)}
                       className="position-absolute end-0 img-fluid mb-2"
-                      src={eye}
+                      src={showPassword ? eye : grayeye}
                       alt=""
-                      id="eyeIcon"
                     />
                   </div>
                   <a
@@ -311,24 +344,41 @@ const Header = () => {
                               />
                               <input
                                 className="form-control"
-                                type="password"
-                                name=""
-                                id="passwordInput_2"
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                maxLength={8}
+                                onChange={handlePasswordChange}
                                 placeholder="*******"
                               />
                               <img
+                                onClick={() => setShowPassword(!showPassword)}
                                 className="position-absolute end-0 img-fluid mb-2"
-                                src="./assets/image/sign_up_pass_eye.png"
+                                src={showPassword ? eye : grayeye}
                                 alt=""
                               />
                             </div>
-                            <div className="password_strong d-flex gap-1 mb-5">
-                              <span></span>
-                              <span></span>
-                              <span></span>
+                            <div className="password_strong d-flex gap-1 mb-1">
+                              {passwordStrengthLabel === "Password is weak" && (
+                                <span></span>
+                              )}
+                              {passwordStrengthLabel ===
+                                "Password is medium" && (
+                                <>
+                                  <span></span>
+                                  <span></span>
+                                </>
+                              )}
+                              {passwordStrengthLabel ===
+                                "Password is strong" && (
+                                <>
+                                  <span></span>
+                                  <span></span>
+                                  <span></span>
+                                </>
+                              )}
                             </div>
                             <div className="d-lg-none d-block">
-                              <h5>Password is strong</h5>
+                              <h5>{passwordStrengthLabel}</h5>
                               <h6>
                                 {" "}
                                 Make sure it’s at least 8 characters including a
@@ -336,15 +386,17 @@ const Header = () => {
                               </h6>
                             </div>
                           </div>
-                          <p
-                            className={userName ? "d-none" : "pass_btn"}
-                            onClick={() => setUserName(true)}
-                          >
-                            Continue
-                          </p>
+                          {!userName && (
+                            <p
+                              className={isValid ? "pass_btn" : "d-none"}
+                              onClick={() => setUserName(true)}
+                            >
+                              Continue
+                            </p>
+                          )}
                         </div>
                         <div className="d-none d-lg-block">
-                          <h5>Password is strong</h5>
+                          <h5>{passwordStrengthLabel}</h5>
                           <h6>
                             {" "}
                             Make sure it’s at least 8 characters including a
@@ -447,34 +499,16 @@ const Header = () => {
                           <p></p>
                         </div>
                         <span>
-                          <Link to="/payment">Upgrade Plan</Link>
+                          <Link
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                            to="/payment"
+                          >
+                            Upgrade Plan
+                          </Link>
                         </span>
                       </div>
                     )}
-                  </form>
-                </div>
-              )}
-
-              {modalStep === 3 && (
-                <div className="enter_code enter_code_after">
-                  <form action="">
-                    <div className="d-flex align-items-center mb-4">
-                      <img src={code} alt="" />
-                      <h4>Enter Code</h4>
-                    </div>
-                    <div className="otp-input d-flex gap-2 mb-5">
-                      {otp.map((digit, index) => (
-                        <input
-                          key={index}
-                          type="number"
-                          maxLength="1"
-                          value={digit}
-                          onChange={(e) => handleChange(index, e.target.value)}
-                          onKeyDown={(e) => handleKeyDown(index, e)}
-                          ref={(ref) => (inputRefs.current[index] = ref)}
-                        />
-                      ))}
-                    </div>
                   </form>
                 </div>
               )}
