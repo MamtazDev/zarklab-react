@@ -392,13 +392,6 @@ body {
   object-fit: contain;
 }
 
-.social_login a {
-  transition: .4s ease-in;
-}
-
-.social_login a:hover {
-  transform: scale(1.02);
-}
 
 .signIn_modal h6 {
   color: #FFF;

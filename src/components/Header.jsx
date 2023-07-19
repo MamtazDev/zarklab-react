@@ -119,10 +119,10 @@ const Header = () => {
 
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li      className="nav-item">
                 <Link
                   className="nav-link d-flex align-items-center justify-content-between"
-                  to="./pricing"
+                  to="/pricing"
                 >
                   Pricing{" "}
                   <img className="d-block d-md-none" src={nextArrow} alt="" />
