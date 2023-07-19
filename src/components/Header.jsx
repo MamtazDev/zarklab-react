@@ -17,6 +17,11 @@ const Header = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [createPassword, setCreatePassword] = useState(false);
   const [userName, setUserName] = useState(false);
+  const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState(false);
+
   // otp code fill up activity
   const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
   const inputRefs = useRef([]);
@@ -46,8 +51,6 @@ const Header = () => {
   const isFilled = otp.every((digit) => digit !== "");
 
   // password validation part
-  const [password, setPassword] = useState("");
-  const [isValid, setIsValid] = useState(false);
 
   const handlePasswordChange = (event) => {
     const value = event.target.value;
@@ -77,6 +80,19 @@ const Header = () => {
   };
 
   const passwordStrengthLabel = getPasswordStrengthLabel(password);
+
+  // email validation part
+  const handleEmail = (event) => {
+    const value = event.target.value;
+    setEmail(value);
+    setIsEmailValid(validateEmail(value));
+  };
+
+  const validateEmail = (value) => {
+    // Regular expression for basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
 
   return (
     <header>
@@ -315,17 +331,25 @@ const Header = () => {
                           <input
                             className="form-control"
                             type="email"
-                            name=""
-                            id=""
+                            value={email}
+                            onChange={handleEmail}
                             placeholder="Email"
                           />
                         </div>
-                        <p
-                          onClick={() => setCreatePassword(true)}
-                          className={createPassword ? "d-none" : "continue_btn"}
-                        >
-                          Continue
-                        </p>
+                        {/* {!isEmailValid && <p className="text-white">email is not valid</p> } */}
+                        {!isEmailValid ? (
+                          // <p className="text-white"></p>""
+                          ""
+                        ) : (
+                          <p
+                            onClick={() => setCreatePassword(true)}
+                            className={
+                              createPassword ? "d-none" : "continue_btn"
+                            }
+                          >
+                            Continue
+                          </p>
+                        )}
                       </div>
                     </form>
                   </div>
