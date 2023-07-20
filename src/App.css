@@ -25,10 +25,6 @@ body {
   max-width: 1240px;
 }
 
-.container_1 {
-  padding-left: 17%;
-}
-
 .zark_front {
   background-image: url("../src/assets/image/banner.png");
   background-repeat: no-repeat;
@@ -1354,15 +1350,6 @@ footer .privacy {
   border: 1px solid #FFC459 !important;
   color: #fff !important;
 }
-
-/* .off_btn {
-  margin-left: 30px;
-} */
-
-/* .payment button:hover {
-  border: 1px solid #FFC459 !important;
-  color: #fff;
-} */
 
 .amount h6 {
   color: #FFF;

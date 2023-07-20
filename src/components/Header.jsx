@@ -492,8 +492,7 @@ const Header = () => {
                         <h4>Verify your account </h4>
                       </div>
                       <p className="mb-5">
-                        Almost there! We’ve sent a code to{" "}
-                        <span>penelope@zarklab.ai</span>{" "}
+                        Almost there! We’ve sent a code to <span>{email}</span>{" "}
                       </p>
                     </>
                   )}
