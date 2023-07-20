@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import applePay from "../assets/image/apple_pay.png";
 import paypal from "../assets/image/paypal.png";
 import applePayModal from "../assets/image/apple_pay_modal.png";
@@ -8,15 +8,31 @@ import profile from "../assets/image/profile_img.png";
 const PaymentDetails = () => {
   const [showCredit, setShowCredit] = useState(false);
   const [showPaypal, setShowPaypal] = useState(false);
+  const resultRef = useRef();
+  const paypalResultRef = useRef();
 
   const handleCredit = () => {
     setShowCredit(true);
     setShowPaypal(false);
+    handleButtonClick();
   };
   const handlePaypal = () => {
     setShowCredit(false);
     setShowPaypal(true);
+    handlePaypalClick();
   };
+
+  const handleButtonClick = () => {
+    if (resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const handlePaypalClick = () => {
+    if (paypalResultRef.current) {
+      paypalResultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="payment">
       <h4>Payment Details</h4>
@@ -148,7 +164,7 @@ const PaymentDetails = () => {
         </form>
       </div>
       {showCredit && (
-        <div className="credit_card">
+        <div ref={resultRef} className="credit_card">
           <form action="">
             <div className="form_data">
               <label className="form-label">Card Number</label>
@@ -164,9 +180,18 @@ const PaymentDetails = () => {
                     aria-label="Default select example"
                   >
                     <option selected></option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="3">April</option>
+                    <option value="3">May</option>
+                    <option value="3">June</option>
+                    <option value="3">July</option>
+                    <option value="3">August</option>
+                    <option value="3">September</option>
+                    <option value="3">October</option>
+                    <option value="3">November</option>
+                    <option value="3">December</option>
                   </select>
                   <p>/</p>
                   <select
@@ -174,9 +199,9 @@ const PaymentDetails = () => {
                     aria-label="Default select example"
                   >
                     <option selected></option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">2023</option>
+                    <option value="2">2024</option>
+                    <option value="3">2025</option>
                   </select>
                 </div>
               </div>
