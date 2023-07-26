@@ -5,11 +5,13 @@ import CruptoChat from "../components/CruptoChat";
 import PriceManipulation from "../components/PriceManipulation";
 import LiveBusiness from "../components/LiveBusiness";
 import SocialMedia from "../components/SocialMedia";
+import Signin from "./Signin";
 
 const Home = () => {
   return (
     <div>
       <Banner />
+      <Signin/>
       <div className="section-timeline container">
         <div className="timeline_card">
           <CruptoChat />
