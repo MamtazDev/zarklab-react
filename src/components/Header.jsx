@@ -96,19 +96,15 @@ const Header = () => {
     return emailRegex.test(value);
   };
 
-
   const signUpHandler = () => {
-      
     //console all state
-      // close triger eikahne likhben 
-
-  }
+    // close triger eikahne likhben
+  };
 
   const signInHandler = () => {
-      //console all state
-      // close triger eikahne likhben 
-    
-  }
+    //console all state
+    // close triger eikahne likhben
+  };
 
   return (
     <header>
@@ -215,7 +211,7 @@ const Header = () => {
                     <img
                       onClick={() => setShowPassword(!showPassword)}
                       className="position-absolute end-0 img-fluid mb-2"
-                      src={showPassword ? eye : grayeye}
+                      src={showPassword ? grayeye : eye}
                       alt=""
                     />
                   </div>
@@ -403,7 +399,7 @@ const Header = () => {
                               <img
                                 onClick={() => setShowPassword(!showPassword)}
                                 className="position-absolute end-0 img-fluid mb-2"
-                                src={showPassword ? eye : grayeye}
+                                src={showPassword ? grayeye : eye}
                                 alt=""
                               />
                             </div>
@@ -535,8 +531,7 @@ const Header = () => {
                       <div>
                         <h6>Didn’t receive the code?</h6>
                         <h6>
-                          <a href="">Resend the code</a> or{" "}
-                          <a href="">update your email address</a>
+                          <a href="#">Resend the code</a>
                         </h6>
                       </div>
                     )}
@@ -544,7 +539,13 @@ const Header = () => {
                     {isFilled && (
                       <div className="enter_code_after d-flex flex-column flex-lg-row align-items-center justify-content-center gap-lg-5 gap-3">
                         <div>
-                          <h6>Enter ZarkLab Now</h6>
+                          <Link
+                            style={{ textDecoration: "none" }}
+                            target="_blank"
+                            to="https://zarklab-dashboard-new-pro.vercel.app/"
+                          >
+                            <h6>Enter ZarkLab Now</h6>
+                          </Link>
                           <p></p>
                         </div>
                         <span data-bs-dismiss="modal" aria-label="Close">

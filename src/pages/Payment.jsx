@@ -8,9 +8,7 @@ const Payment = () => {
     <section className="turning_pro">
       <div className="container">
         <PaymentBanner />
-
         <PaymentFrequency />
-
         <PaymentDetails />
       </div>
     </section>

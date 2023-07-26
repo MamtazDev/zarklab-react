@@ -11,8 +11,8 @@ const Footer = () => {
           <>
             <img src={logo} alt="" />
             <h6>
-              A Trusted Blockchain Platform to protect the community, one user
-              at a time.
+              A Trusted Blockchain Platform to protect the <br /> community, one
+              user at a time.
             </h6>
           </>
         )}

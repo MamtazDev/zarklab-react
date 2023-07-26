@@ -474,17 +474,17 @@ body {
   cursor: pointer;
 }
 
-.continue_btn:hover {
+/* .continue_btn:hover {
   background-color: #fff;
   color: #000;
-}
+} */
 
 .password label {
   color: #59F5FF
 }
 
 .pass_btn {
-  border: 1px solid #59F5FF;
+  border: 1px solid #fff;
   color: #FFF !important;
   font-size: 12px !important;
   font-style: normal;
@@ -498,8 +498,7 @@ body {
 }
 
 .pass_btn:hover {
-  background-color: #59F5FF;
-  color: #000 !important;
+  border: 1px solid #59F5FF;
 }
 
 .password_strong span {
@@ -538,7 +537,7 @@ body {
 }
 
 .userName_btn {
-  border: 1px solid #D255D1;
+  border: 1px solid #fff;
   color: #FFF !important;
   font-size: 12px !important;
   font-style: normal;
@@ -552,8 +551,7 @@ body {
 }
 
 .userName_btn:hover {
-  background-color: #D255D1;
-  color: #000 !important;
+  border: 1px solid #D255D1;
 }
 
 .enter_code {
@@ -1150,11 +1148,6 @@ footer .privacy {
   padding-bottom: 200px;
 }
 
-
-
-
-
-
 .prc_banner h1 {
   color: #FFF;
   font-size: 50px;
@@ -1167,6 +1160,9 @@ footer .privacy {
 }
 
 
+.free_pro_inner {
+  gap: 69px;
+}
 
 .free_pro .free {
   position: relative;

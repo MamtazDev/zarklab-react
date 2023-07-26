@@ -10,8 +10,10 @@ const FreePro = () => {
   return (
     <section className="free_pro">
       <div className="container">
-        <div className="row flex-column-reverse flex-lg-row g-0 gx-lg-5 free_pro_inner">
-          <div className="col-12 col-lg-6">
+        <div
+          className="d-flex flex-column-reverse flex-lg-row free_pro_inner"
+        >
+          <div className="w-100 w-lg-50">
             <div className="free mb-5 pb-1">
               <div>
                 <h2 style={{ marginBottom: "16px" }}>Free</h2>
@@ -50,7 +52,7 @@ const FreePro = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="w-100 w-lg-50">
             <div className="pro row g-0 mb-3">
               <div className="col-12 col-lg-6">
                 <h2 style={{ marginBottom: "5px" }}>ZarkLab PRO</h2>
