@@ -231,13 +231,11 @@ const PaymentDetails = () => {
                 <input
                   className="form-control"
                   type="text"
-              
                   placeholder="First Name*"
                 />
                 <input
                   className="form-control"
                   type="text"
-               
                   placeholder="Last Name*"
                 />
               </div>
@@ -245,13 +243,11 @@ const PaymentDetails = () => {
               <input
                 className="form-control"
                 type="text"
-               
                 placeholder="Address (P.O. box, company name, c/o)*"
               />
               <input
                 className="form-control"
                 type="text"
-            
                 placeholder="Address line 2 (Apartment, suite, unit)"
               />
 
@@ -259,13 +255,11 @@ const PaymentDetails = () => {
                 <input
                   className="form-control"
                   type="number"
-              
                   placeholder="Postal Code*"
                 />
                 <input
                   className="form-control"
                   type="text"
-    
                   placeholder="Country*"
                 />
               </div>
