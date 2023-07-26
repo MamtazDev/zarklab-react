@@ -22,7 +22,7 @@ const PaymentLogin = () => {
               <input className="w-100" type="password" />
               <img
                 onClick={() => setShowPassword(!showPassword)}
-                style={{ top: "42%", right: "20px" }}
+                style={{ top: "42%", right: "20px", cursor: "pointer" }}
                 className="position-absolute  img-fluid"
                 src={showPassword ? eye : grayeye}
                 alt=""

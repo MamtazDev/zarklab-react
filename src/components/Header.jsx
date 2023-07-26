@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import logo from "../assets/image/logo.png";
 import nextArrow from "../assets/image/next-arrow.png";
 import signUp from "../assets/image/sign_up.png";
@@ -10,8 +10,10 @@ import grayeye from "../assets/image/sign_up_pass_eye.png";
 import code from "../assets/image/enter_code.png";
 import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Header = () => {
+  const { user, setUser } = useContext(AuthContext);
   const [addBg, setAddBg] = useState(false);
   const [modalStep, setModalStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
@@ -237,6 +239,7 @@ const Header = () => {
                       onChange={handlesignInChange}
                     />
                     <img
+                      style={{ cursor: "pointer" }}
                       onClick={() => setShowPassword(!showPassword)}
                       className="position-absolute end-0 img-fluid mb-2"
                       src={showPassword ? grayeye : eye}
@@ -244,7 +247,7 @@ const Header = () => {
                     />
                   </div>
                   <a
-                    href=""
+                    href="#"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal_forgetPassword"
                   >
@@ -496,14 +499,10 @@ const Header = () => {
                                 <input
                                   className="form-control"
                                   type="text"
-                                  name=""
+                                  onChange={(e) => setUser(e.target.value)}
                                 />
                               </div>
-                              <button
-                                type="submit"
-                                // onClick={() => setModalStep(2)}
-                                className="userName_btn"
-                              >
+                              <button type="submit" className="userName_btn">
                                 Continue
                               </button>
                             </div>

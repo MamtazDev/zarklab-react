@@ -1,11 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import applePay from "../assets/image/apple_pay.png";
 import paypal from "../assets/image/paypal.png";
 import applePayModal from "../assets/image/apple_pay_modal.png";
 import done from "../assets/image/done.png";
 import profile from "../assets/image/profile_img.png";
+import { AuthContext } from "../contexts/AuthContext";
 
 const PaymentDetails = () => {
+  const { user, setUser } = useContext(AuthContext);
+
   const [showCredit, setShowCredit] = useState(false);
   const [showPaypal, setShowPaypal] = useState(false);
   const resultRef = useRef();
@@ -219,7 +222,7 @@ const PaymentDetails = () => {
               <div className="profile d-flex gap-4">
                 <img src={profile} alt="" />
                 <div>
-                  <h4>Penzie</h4>
+                  <h4>{user ? user : "Penzie"}</h4>
                   <p>Personal Account</p>
                 </div>
               </div>
