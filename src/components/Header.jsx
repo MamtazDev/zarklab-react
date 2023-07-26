@@ -96,6 +96,20 @@ const Header = () => {
     return emailRegex.test(value);
   };
 
+
+  const signUpHandler = () => {
+      
+    //console all state
+      // close triger eikahne likhben 
+
+  }
+
+  const signInHandler = () => {
+      //console all state
+      // close triger eikahne likhben 
+    
+  }
+
   return (
     <header>
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
@@ -215,7 +229,7 @@ const Header = () => {
                   <div className="d-flex justify-content-between align-items-center sign_in_btn">
                     <button type="submit">Sign in</button>
                     <p>
-                      Not a member yet?{" "}
+                      Not a member yet?
                       <a
                         href=""
                         data-bs-toggle="modal"
