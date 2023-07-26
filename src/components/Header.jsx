@@ -21,6 +21,8 @@ const Header = () => {
   const [isValid, setIsValid] = useState(false);
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
+  const [signInValue, setSignInValue] = useState({});
+  const [signUPValue, setSignUpValue] = useState({});
 
   const hamburgerRef = useRef();
 
@@ -96,14 +98,32 @@ const Header = () => {
     return emailRegex.test(value);
   };
 
-  const signUpHandler = () => {
-    //console all state
-    // close triger eikahne likhben
+  const handlesignInChange = (event) => {
+    setSignInValue({
+      ...signInValue,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  const signInHandler = () => {
+  const signUpHandler = (event) => {
+    event.preventDefault();
     //console all state
     // close triger eikahne likhben
+    setSignInValue({
+      ...signUPValue,
+      email,
+      password,
+      userName,
+      otp,
+    });
+    console.log(signUPValue);
+  };
+
+  const signInHandler = (event) => {
+    event.preventDefault();
+    //console all state
+    // close triger eikahne likhben
+    console.log(signInValue);
   };
 
   return (
@@ -190,14 +210,15 @@ const Header = () => {
             <div className="modal-body">
               <div className="signIn_modal">
                 <h2>Welcome Back!</h2>
-                <form action="">
+                <form onSubmit={signInHandler}>
                   <div className="d-flex align-items-center gap-1 mb-5">
                     <img src={signUp} alt="" />
                     <input
                       className="form-control"
                       type="email"
-                      name=""
-                      id=""
+                      name="email"
+                      value={signInValue.email}
+                      onChange={handlesignInChange}
                       placeholder="Email"
                     />
                   </div>
@@ -207,6 +228,9 @@ const Header = () => {
                       className="form-control"
                       type={showPassword ? "text" : "password"}
                       placeholder="*******"
+                      name="password"
+                      value={signInValue.password}
+                      onChange={handlesignInChange}
                     />
                     <img
                       onClick={() => setShowPassword(!showPassword)}
@@ -345,7 +369,7 @@ const Header = () => {
                       Experience the new world of AI in Crypto{" "}
                     </h3>
 
-                    <form action="">
+                    <form onSubmit={signUpHandler}>
                       <label className="form-label">Enter your email*</label>
                       <div className="d-flex justify-content-between align-items-center flex-wrap gap-4">
                         <div className="d-flex align-items-center gap-1">
