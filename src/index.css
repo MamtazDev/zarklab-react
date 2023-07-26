@@ -1,0 +1,11 @@
+/* for scrollbar  */
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import PaymentBanner from "../components/PaymentBanner";
 import PaymentFrequency from "../components/PaymentFrequency";
 import PaymentDetails from "../components/PaymentDetails";
+import PaymentLogin from "../components/PaymentLogin";
 
 const Payment = () => {
   return (
@@ -9,6 +10,7 @@ const Payment = () => {
       <div className="container">
         <PaymentBanner />
         <PaymentFrequency />
+        <PaymentLogin />
         <PaymentDetails />
       </div>
     </section>
