@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container">
         {location.pathname !== "/payment" && (
           <>
-            <img src={logo} alt="" />
+            <img style={{ height: "51px", width: "164px" }} src={logo} alt="" />
             <h6>
               A Trusted Blockchain Platform to protect the <br /> community, one
               user at a time.
