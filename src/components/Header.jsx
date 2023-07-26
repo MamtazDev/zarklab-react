@@ -109,16 +109,20 @@ const Header = () => {
     event.preventDefault();
     //console all state
     // close triger eikahne likhben
-    setSignInValue({
+    setSignUpValue({
       ...signUPValue,
       email,
       password,
       userName,
       otp,
     });
-    console.log(signUPValue);
+
+    setModalStep(2);
+
+    console.log("submited");
   };
 
+  console.log(signUPValue);
   const signInHandler = (event) => {
     event.preventDefault();
     //console all state
@@ -273,11 +277,6 @@ const Header = () => {
                     </a>
                   </div>
                 </form>
-
-
-
-
-
               </div>
             </div>
           </div>
@@ -382,6 +381,7 @@ const Header = () => {
                           <input
                             className="form-control"
                             type="email"
+                            name="email"
                             value={email}
                             onChange={handleEmail}
                             placeholder="Email"
@@ -402,57 +402,74 @@ const Header = () => {
                           </p>
                         )}
                       </div>
-                    </form>
-                  </div>
-                  {createPassword && (
-                    <div className="password" style={{ marginTop: "12px" }}>
-                      <form action="" className="signup_modal">
-                        <div className="d-flex justify-content-between align-items-center flex-lg-nowrap flex-wrap w-100 gap-4">
-                          <div className="w-100">
-                            <label className="form-label">
-                              Create a password*
-                            </label>
-                            <div className="d-flex align-items-center gap-1 mb-3 position-relative">
-                              <img
-                                src="./assets/image/password_arrow.png"
-                                alt=""
-                              />
-                              <input
-                                className="form-control"
-                                type={showPassword ? "text" : "password"}
-                                value={password}
-                                maxLength={8}
-                                onChange={handlePasswordChange}
-                                placeholder="*******"
-                              />
-                              <img
-                                onClick={() => setShowPassword(!showPassword)}
-                                className="position-absolute end-0 img-fluid mb-2"
-                                src={showPassword ? grayeye : eye}
-                                alt=""
-                              />
+                      {createPassword && (
+                        <div className="password" style={{ marginTop: "12px" }}>
+                          <div className="signup_modal">
+                            <div className="d-flex justify-content-between align-items-center flex-lg-nowrap flex-wrap w-100 gap-4">
+                              <div className="w-100">
+                                <label className="form-label">
+                                  Create a password*
+                                </label>
+                                <div className="d-flex align-items-center gap-1 mb-3 position-relative">
+                                  <img
+                                    src="./assets/image/password_arrow.png"
+                                    alt=""
+                                  />
+                                  <input
+                                    className="form-control"
+                                    type={showPassword ? "text" : "password"}
+                                    value={password}
+                                    maxLength={8}
+                                    onChange={handlePasswordChange}
+                                    placeholder="*******"
+                                  />
+                                  <img
+                                    onClick={() =>
+                                      setShowPassword(!showPassword)
+                                    }
+                                    className="position-absolute end-0 img-fluid mb-2"
+                                    src={showPassword ? grayeye : eye}
+                                    alt=""
+                                  />
+                                </div>
+                                <div className="password_strong d-flex gap-1 mb-1">
+                                  {passwordStrengthLabel ===
+                                    "Password is weak" && <span></span>}
+                                  {passwordStrengthLabel ===
+                                    "Password is medium" && (
+                                    <>
+                                      <span></span>
+                                      <span></span>
+                                    </>
+                                  )}
+                                  {passwordStrengthLabel ===
+                                    "Password is strong" && (
+                                    <>
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
+                                    </>
+                                  )}
+                                </div>
+                                <div className="d-lg-none d-block">
+                                  <h5>{passwordStrengthLabel}</h5>
+                                  <h6>
+                                    {" "}
+                                    Make sure it’s at least 8 characters
+                                    including a number and a lowercase letter
+                                  </h6>
+                                </div>
+                              </div>
+                              {!userName && (
+                                <p
+                                  className={isValid ? "pass_btn" : "d-none"}
+                                  onClick={() => setUserName(true)}
+                                >
+                                  Continue
+                                </p>
+                              )}
                             </div>
-                            <div className="password_strong d-flex gap-1 mb-1">
-                              {passwordStrengthLabel === "Password is weak" && (
-                                <span></span>
-                              )}
-                              {passwordStrengthLabel ===
-                                "Password is medium" && (
-                                <>
-                                  <span></span>
-                                  <span></span>
-                                </>
-                              )}
-                              {passwordStrengthLabel ===
-                                "Password is strong" && (
-                                <>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                </>
-                              )}
-                            </div>
-                            <div className="d-lg-none d-block">
+                            <div className="d-none d-lg-block">
                               <h5>{passwordStrengthLabel}</h5>
                               <h6>
                                 {" "}
@@ -461,50 +478,40 @@ const Header = () => {
                               </h6>
                             </div>
                           </div>
-                          {!userName && (
-                            <p
-                              className={isValid ? "pass_btn" : "d-none"}
-                              onClick={() => setUserName(true)}
-                            >
-                              Continue
-                            </p>
-                          )}
                         </div>
-                        <div className="d-none d-lg-block">
-                          <h5>{passwordStrengthLabel}</h5>
-                          <h6>
-                            {" "}
-                            Make sure it’s at least 8 characters including a
-                            number and a lowercase letter
-                          </h6>
-                        </div>
-                      </form>
-                    </div>
-                  )}
-
-                  {userName && (
-                    <div className=" user_name" style={{ marginTop: "12px" }}>
-                      <form action="" className="signup_modal">
-                        <label className="form-label"> Enter a username*</label>
-                        <div className="d-flex justify-content-between align-items-center flex-wrap gap-4">
-                          <div className="d-flex align-items-center gap-1">
-                            <img src={signUp} alt="" />
-                            <input
-                              className="form-control"
-                              type="text"
-                              name=""
-                            />
+                      )}
+                      {userName && (
+                        <div
+                          className=" user_name"
+                          style={{ marginTop: "12px" }}
+                        >
+                          <div className="signup_modal">
+                            <label className="form-label">
+                              {" "}
+                              Enter a username*
+                            </label>
+                            <div className="d-flex justify-content-between align-items-center flex-wrap gap-4">
+                              <div className="d-flex align-items-center gap-1">
+                                <img src={signUp} alt="" />
+                                <input
+                                  className="form-control"
+                                  type="text"
+                                  name=""
+                                />
+                              </div>
+                              <button
+                                type="submit"
+                                // onClick={() => setModalStep(2)}
+                                className="userName_btn"
+                              >
+                                Continue
+                              </button>
+                            </div>
                           </div>
-                          <p
-                            onClick={() => setModalStep(2)}
-                            className="userName_btn"
-                          >
-                            Continue
-                          </p>
                         </div>
-                      </form>
-                    </div>
-                  )}
+                      )}
+                    </form>
+                  </div>
                 </>
               )}
               {modalStep === 2 && (
