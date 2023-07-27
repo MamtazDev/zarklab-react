@@ -30,6 +30,9 @@ const PaymentLogin = () => {
             </div>
           </div>
         </div>
+        <button type="submit" className="continue_btn mt-4">
+          Log In
+        </button>
       </form>
     </div>
   );
