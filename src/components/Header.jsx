@@ -18,7 +18,7 @@ const AwsConfigAuth = {
   userPoolId: "us-east-1_iJNzGNptL",
   userPoolWebClientId: "65n2hiu49tacap7h2hbr6idmv",
   cookieStorage: {
-    domain: "localhost",
+    domain: "https://zarklab-react.vercel.app",
     path: "/",
     expires: 365,
     sameSite: "strict",
