@@ -46,14 +46,16 @@ const Header = () => {
   const [signInValue, setSignInValue] = useState({});
   const [signUPValue, setSignUpValue] = useState({});
 
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
+
   const hamburgerRef = useRef();
   const closeSignInModal = useRef(null);
 
   // otp code fill up activity
-  const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const inputRefs = useRef([]);
 
-  const handleChange = (index, value) => {
+  const handleChange = async (index, value) => {
     if (value.length > 1) {
       return; // Do not update if the value exceeds one character
     }
@@ -65,6 +67,21 @@ const Header = () => {
     // Focus on the next input field
     if (value !== "" && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
+    }
+
+    console.log(index, "inddd");
+
+    if (index === 5) {
+      const code = newOtp.join("");
+      const username = email;
+      try {
+        const result = await Auth.confirmSignUp(username, code);
+        if (result === "SUCCESS") {
+          setIsOtpVerified(true);
+        }
+      } catch (error) {
+        console.log("error confirming sign up", error);
+      }
     }
   };
 
@@ -169,6 +186,7 @@ const Header = () => {
         console.log(error);
       }
     }
+    setModalStep(2);
   };
 
   console.log(signUPValue);
@@ -176,7 +194,9 @@ const Header = () => {
     event.preventDefault();
 
     try {
-      const user = await Auth.signIn(username, password);
+      const user = await Auth.signIn(signInValue?.email, signInValue?.password);
+
+      console.log(user, "uss");
     } catch (error) {
       console.log("error signing in", error);
     }
@@ -587,12 +607,12 @@ const Header = () => {
               )}
               {modalStep === 2 && (
                 <div className="enter_code">
-                  {isFilled && (
+                  {isOtpVerified && (
                     <div className="enter_code_after">
                       <h4 className=" mb-5">You’re Set to Go!</h4>
                     </div>
                   )}
-                  {!isFilled && (
+                  {!isOtpVerified && (
                     <>
                       <button
                         onClick={() => setModalStep(1)}
@@ -624,6 +644,7 @@ const Header = () => {
                       {otp.map((digit, index) => (
                         <input
                           key={index}
+                          disabled={isOtpVerified}
                           type="number"
                           maxLength="1"
                           value={digit}
@@ -634,7 +655,7 @@ const Header = () => {
                       ))}
                     </div>
 
-                    {!isFilled && (
+                    {!isOtpVerified && (
                       <div>
                         <h6>Didn’t receive the code?</h6>
                         <h6>
@@ -643,7 +664,7 @@ const Header = () => {
                       </div>
                     )}
 
-                    {isFilled && (
+                    {isOtpVerified && (
                       <div className="enter_code_after d-flex flex-column flex-lg-row align-items-center justify-content-center gap-lg-5 gap-3">
                         <div>
                           <Link
