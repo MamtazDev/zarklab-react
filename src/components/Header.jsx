@@ -220,9 +220,6 @@ const Header = () => {
             <ul className="navbar-nav align-items-start align-items-lg-center ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  onClick={() => {
-                    hamburgerRef.current.click();
-                  }}
                   className="nav-link d-flex align-items-center justify-content-between"
                   to="/pricing"
                 >
