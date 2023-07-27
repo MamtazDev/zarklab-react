@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import logo from "../assets/image/logo.png";
 import nextArrow from "../assets/image/next-arrow.png";
 import signUp from "../assets/image/sign_up.png";
@@ -11,8 +11,29 @@ import code from "../assets/image/enter_code.png";
 import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import useAwsSignUp from "../hooks/useAwsSignUp";
+import { Amplify, Auth } from "aws-amplify";
+
+const AwsConfigAuth = {
+  region: "us-east-1",
+  userPoolId: "us-east-1_iJNzGNptL",
+  userPoolWebClientId: "65n2hiu49tacap7h2hbr6idmv",
+  cookieStorage: {
+    domain: "AUTH_COOKIE_STORAGE_DOMAIN",
+    path: "/",
+    expires: 365,
+    sameSite: "strict",
+    secure: true,
+  },
+  authenticationFlowType: "USER_SRP_AUTH",
+};
 
 const Header = () => {
+  Amplify.configure({ Auth: AwsConfigAuth });
+
+  const [userInfo, setUserInfo] = useState(null);
+  const [userSub, setUserSub] = useState(null);
+
   const { user, setUser } = useContext(AuthContext);
   const [addBg, setAddBg] = useState(false);
   const [modalStep, setModalStep] = useState(1);
@@ -107,7 +128,7 @@ const Header = () => {
     });
   };
 
-  const signUpHandler = (event) => {
+  const signUpHandler = async (event) => {
     event.preventDefault();
     //console all state
     // close triger eikahne likhben
@@ -119,9 +140,35 @@ const Header = () => {
       otp,
     });
 
-    setModalStep(2);
+    if (email && password) {
+      try {
+        const result = await Auth.signUp({
+          username: email,
+          password: password,
 
-    console.log("submited");
+          attributes: {
+            preferred_username: "dihan",
+            email,
+          },
+          autoSignIn: {
+            enabled: true,
+          },
+        });
+
+        if (!result.userConfirmed) {
+          // setdisplayOTPInput(true)
+        }
+
+        if (result?.userSub) {
+          setUserInfo(result);
+          setUserSub(result?.userSub);
+          setModalStep(2);
+        }
+        console.log(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   console.log(signUPValue);
@@ -131,6 +178,19 @@ const Header = () => {
     // close triger eikahne likhben
     console.log(signInValue);
   };
+
+  useEffect(() => {
+    async function checkAuth() {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        console.log(user);
+      } catch (e) {
+        // setEmail(undefined)
+        // setPassword(undefined)
+      }
+    }
+    checkAuth();
+  }, []);
 
   return (
     <header>
