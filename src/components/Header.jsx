@@ -200,6 +200,9 @@ const Header = () => {
       const user = await Auth.signIn(username, password);
       if (user) {
         closeSignInModal.current.click();
+        window.location.replace(
+          "https://zarklab-dashboard-new-pro.vercel.app/token"
+        );
       }
     } catch (error) {
       console.log("error signing in", error);
