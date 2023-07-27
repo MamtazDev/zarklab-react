@@ -1,19 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import applePay from "../assets/image/apple_pay.png";
 import paypal from "../assets/image/paypal.png";
 import applePayModal from "../assets/image/apple_pay_modal.png";
 import done from "../assets/image/done.png";
 import profile from "../assets/image/profile_img.png";
 import { AuthContext } from "../contexts/AuthContext";
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const PaymentDetails = () => {
   const { user, setUser } = useContext(AuthContext);
-
-  const [show, setShow] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [ErrorMessage, setErrorMessage] = useState("");
-  const [orderID, setOrderID] = useState(false);
 
   const [showCredit, setShowCredit] = useState(false);
   const [showPaypal, setShowPaypal] = useState(false);
@@ -41,46 +35,6 @@ const PaymentDetails = () => {
       paypalResultRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  // creates a paypal order
-  const createOrder = (data, actions) => {
-    return actions.order
-      .create({
-        purchase_units: [
-          {
-            description: "Sunflower",
-            amount: {
-              currency_code: "USD",
-              value: 20,
-            },
-          },
-        ],
-      })
-      .then((orderID) => {
-        setOrderID(orderID);
-        return orderID;
-      });
-  };
-
-  // check Approval
-  const onApprove = (data, actions) => {
-    return actions.order.capture().then(function (details) {
-      const { payer } = details;
-      setSuccess(true);
-    });
-  };
-
-  //capture likely error
-  const onError = (data, actions) => {
-    setErrorMessage("An Error occured with your payment ");
-  };
-
-  useEffect(() => {
-    if (success) {
-      alert("Payment successful!!");
-      console.log("Order successful . Your order id is--", orderID);
-    }
-  }, [success]);
 
   return (
     <div className="payment">
@@ -129,38 +83,6 @@ const PaymentDetails = () => {
               data={2}
             />
             <label htmlFor="javascript" className="label-text">
-              <PayPalScriptProvider options={{ "client-id": "fklsfjk" }}>
-                <div>
-                  <div className="wrapper">
-                    <div className="product-img">
-                      <img
-                        src="https://cdn.pixabay.com/photo/2021/08/15/06/54/sunflower-6546993_1280.jpg"
-                        alt="SunFlower"
-                        height="320"
-                        width="300"
-                      />
-                    </div>
-                    <div className="product-info">
-                      <div className="product-text">
-                        <h1>Sunflower</h1>
-                      </div>
-                      <div className="product-price-btn">
-                        <p>$20</p>
-                        <br></br>
-                        <a onClick={() => setShow(true)}>Buy now</a>
-                      </div>
-                    </div>
-                  </div>
-                  <br></br>
-                  {show ? (
-                    <PayPalButtons
-                      style={{ layout: "vertical" }}
-                      createOrder={createOrder}
-                      onApprove={onApprove}
-                    />
-                  ) : null}
-                </div>
-              </PayPalScriptProvider>
               Paypal
             </label>
           </div>
