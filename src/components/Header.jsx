@@ -12,13 +12,13 @@ import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { Amplify, Auth } from "aws-amplify";
-
+// AUTH_COOKIE_STORAGE_DOMAIN
 const AwsConfigAuth = {
   region: "us-east-1",
   userPoolId: "us-east-1_iJNzGNptL",
   userPoolWebClientId: "65n2hiu49tacap7h2hbr6idmv",
   cookieStorage: {
-    domain: "AUTH_COOKIE_STORAGE_DOMAIN",
+    domain: "localhost",
     path: "/",
     expires: 365,
     sameSite: "strict",
@@ -190,20 +190,21 @@ const Header = () => {
   };
 
   console.log(signUPValue);
+
   const signInHandler = async (event) => {
     event.preventDefault();
-
     try {
-      const user = await Auth.signIn(signInValue?.email, signInValue?.password);
+      const username = signInValue?.email;
+      const password = signInValue?.password;
 
-      console.log(user, "uss");
+      const user = await Auth.signIn(username, password);
+      if (user) {
+        closeSignInModal.current.click();
+      }
     } catch (error) {
       console.log("error signing in", error);
     }
 
-    //console all state
-    // close triger eikahne likhben
-    // closeSignInModal.current.click();
     console.log(signInValue, "signin");
   };
 
@@ -692,5 +693,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;
