@@ -11,7 +11,6 @@ import code from "../assets/image/enter_code.png";
 import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import useAwsSignUp from "../hooks/useAwsSignUp";
 import { Amplify, Auth } from "aws-amplify";
 
 const AwsConfigAuth = {
@@ -48,6 +47,7 @@ const Header = () => {
   const [signUPValue, setSignUpValue] = useState({});
 
   const hamburgerRef = useRef();
+  const closeSignInModal = useRef(null);
 
   // otp code fill up activity
   const [otp, setOtp] = useState(["", "", "", "", "", "", "", ""]);
@@ -172,11 +172,19 @@ const Header = () => {
   };
 
   console.log(signUPValue);
-  const signInHandler = (event) => {
+  const signInHandler = async (event) => {
     event.preventDefault();
+
+    try {
+      const user = await Auth.signIn(username, password);
+    } catch (error) {
+      console.log("error signing in", error);
+    }
+
     //console all state
     // close triger eikahne likhben
-    console.log(signInValue);
+    // closeSignInModal.current.click();
+    console.log(signInValue, "signin");
   };
 
   useEffect(() => {
@@ -274,6 +282,13 @@ const Header = () => {
               <div className="signIn_modal">
                 <h2>Welcome Back!</h2>
                 <form onSubmit={signInHandler}>
+                  <button
+                    ref={closeSignInModal}
+                    type="button"
+                    class="btn-close d-none"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
                   <div className="d-flex align-items-center gap-1 mb-5">
                     <img src={signUp} alt="" />
                     <input
