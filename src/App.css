@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -17,7 +17,7 @@ p {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background: var(--website-grey-7, #070707);
 }
 
@@ -35,7 +35,6 @@ body {
   position: relative;
 }
 
-
 .navbar {
   position: absolute;
   width: 100%;
@@ -45,21 +44,20 @@ body {
   top: 0;
 }
 
-
 .navbar-nav {
   gap: 30px;
 }
 
 /* header css */
 .nav-link {
-  color: #FFF;
+  color: #fff;
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
 }
 
 .nav-link:hover {
-  color: #FFF;
+  color: #fff;
 }
 
 .navbar-toggler:focus {
@@ -68,11 +66,9 @@ body {
   box-shadow: none;
 }
 
-
 .navbar-toggler-icon {
-  background-image: url('../src/assets/image/navicon.png');
+  background-image: url("../src/assets/image/navicon.png");
 }
-
 
 .navbar.expanded {
   background-color: #000;
@@ -86,14 +82,13 @@ body {
 .signup_btn {
   padding: 6px 20px 8px 20px !important;
   border-radius: 8px;
-  border: 1px solid #14F092;
-  transition: .4s ease-in-out;
+  border: 1px solid #14f092;
+  transition: 0.4s ease-in-out;
 }
 
 .signup_btn:hover {
   background: #00cf75;
   border: 1px solid #00cf75;
-
 }
 
 .nav-link:focus,
@@ -101,14 +96,13 @@ body {
   color: #ededed;
 }
 
-
 /* nav bar mobile Start */
 
 .navbar-toggler {
   width: 20px;
   height: 20px;
   position: relative;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .navbar-toggler,
@@ -136,13 +130,12 @@ body {
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .middle-bar {
   margin-top: 0px;
 }
-
 
 /* State when the navbar is collapsed */
 
@@ -171,7 +164,7 @@ body {
   width: 20px;
   height: 20px;
   position: relative;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .navbar-toggler,
@@ -199,13 +192,12 @@ body {
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .middle-bar {
   margin-top: 0px;
 }
-
 
 /* State when the navbar is collapsed */
 
@@ -269,7 +261,7 @@ body {
 }
 
 .signIn_modal h2 {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -284,7 +276,7 @@ body {
   background: none !important;
   padding: 0px !important;
   color: #fff;
-  caret-color: #14F092;
+  caret-color: #14f092;
 }
 
 .signIn_modal input::placeholder {
@@ -296,7 +288,7 @@ body {
 }
 
 .signIn_modal a {
-  color: var(--website-green, #14F092);
+  color: var(--website-green, #14f092);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -310,41 +302,41 @@ body {
 }
 
 .signIn_modal button {
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
   border-radius: 6px;
-  border: 1px solid #14F092;
+  border: 1px solid #14f092;
   background: #181818;
   /* width: 111px; */
   padding: 5px 34px;
   white-space: nowrap;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .signIn_modal button:hover {
-  border: 1px solid #14F092;
-  background: #14F092;
+  border: 1px solid #14f092;
+  background: #14f092;
 }
 
 .signIn_modal p,
-.signIn_modal p>a {
-  color: #CDCDCD;
+.signIn_modal p > a {
+  color: #cdcdcd;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
 }
 
-.signIn_modal p>a {
-  color: #14F092;
+.signIn_modal p > a {
+  color: #14f092;
   text-decoration: none;
   margin-left: 0px;
 }
 
-.signIn_modal p>a:hover {
+.signIn_modal p > a:hover {
   text-decoration: underline;
 }
 
@@ -369,7 +361,7 @@ body {
 }
 
 .signIn_modal h3 {
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -382,15 +374,14 @@ body {
   margin-bottom: 18px;
 }
 
-.social_login a>img {
+.social_login a > img {
   border-radius: 5px;
   cursor: pointer;
   object-fit: contain;
 }
 
-
 .signIn_modal h6 {
-  color: #FFF;
+  color: #fff;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-style: normal;
@@ -415,7 +406,6 @@ body {
 
 /*Sign_in Modal End */
 
-
 /*Sign_up Modal Start */
 
 .signup_modal {
@@ -432,7 +422,7 @@ body {
 }
 
 .signup_modal label {
-  color: #14F092;
+  color: #14f092;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-style: normal;
@@ -446,8 +436,7 @@ body {
   background: none !important;
   padding: 0px !important;
   color: #fff;
-  caret-color: #14F092;
-
+  caret-color: #14f092;
 }
 
 .signup_modal input::placeholder {
@@ -458,9 +447,8 @@ body {
   line-height: 160%;
 }
 
-
 .continue_btn {
-  color: #FFF;
+  color: #fff;
   font-family: Plus Jakarta Sans;
   font-size: 12px !important;
   font-style: normal;
@@ -468,9 +456,9 @@ body {
   line-height: 160%;
   padding: 6px 29px;
   background: #000;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
   border-radius: 6px;
-  border: 1px solid #B1B1B1;
+  border: 1px solid #b1b1b1;
   cursor: pointer;
 }
 
@@ -480,38 +468,37 @@ body {
 } */
 
 .password label {
-  color: #59F5FF
+  color: #59f5ff;
 }
 
 .pass_btn {
   border: 1px solid #fff;
-  color: #FFF !important;
+  color: #fff !important;
   font-size: 12px !important;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
   padding: 6px 29px;
   background: #000;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .pass_btn:hover {
-  border: 1px solid #59F5FF;
+  border: 1px solid #59f5ff;
 }
 
 .password_strong span {
   display: block;
   width: 50px;
   height: 3px;
-  background-color: #59F5FF;
+  background-color: #59f5ff;
   border-radius: 6px;
 }
 
-
 .password h5 {
-  color: #FFF;
+  color: #fff;
   font-family: Plus Jakarta Sans;
   font-size: 13px;
   font-style: normal;
@@ -529,29 +516,29 @@ body {
 }
 
 .user_name label {
-  color: #D255D1
+  color: #d255d1;
 }
 
 .user_name input {
-  caret-color: #D255D1;
+  caret-color: #d255d1;
 }
 
 .userName_btn {
   border: 1px solid #fff;
-  color: #FFF !important;
+  color: #fff !important;
   font-size: 12px !important;
   font-style: normal;
   font-weight: 400;
   line-height: 160%;
   padding: 6px 29px;
   background: #000;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
   border-radius: 6px;
   cursor: pointer;
 }
 
 .userName_btn:hover {
-  border: 1px solid #D255D1;
+  border: 1px solid #d255d1;
 }
 
 .enter_code {
@@ -564,14 +551,14 @@ body {
   background: #181818;
   width: 63px;
   height: 87px;
-  caret-color: #FFC459;
-  color: #FFC157;
+  caret-color: #ffc459;
+  color: #ffc157;
   font-size: 46px;
   text-align: center;
 }
 
 .enter_code h4 {
-  color: #FFC459;
+  color: #ffc459;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-style: normal;
@@ -580,7 +567,7 @@ body {
 }
 
 .enter_code p {
-  color: #FFF;
+  color: #fff;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-style: normal;
@@ -589,8 +576,7 @@ body {
 }
 
 .enter_code span {
-  color: #14F092;
-  ;
+  color: #14f092;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
   font-style: normal;
@@ -599,7 +585,7 @@ body {
 }
 
 .enter_code h6 {
-  color: #8A8A8A;
+  color: #8a8a8a;
   font-family: Plus Jakarta Sans;
   font-size: 13px;
   font-style: normal;
@@ -608,7 +594,7 @@ body {
 }
 
 .enter_code h6 a {
-  color: #ED6344;
+  color: #ed6344;
   text-decoration: none;
 }
 
@@ -616,12 +602,12 @@ body {
   text-decoration: underline;
 }
 
-.enter_code_after>h4 {
-  color: #14F092
+.enter_code_after > h4 {
+  color: #14f092;
 }
 
 .enter_code_after h6 {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
@@ -633,12 +619,12 @@ body {
 .enter_code_after p {
   width: 146px;
   height: 3px;
-  color: #D255D1;
-  border-bottom: 3px solid #D255D1;
+  color: #d255d1;
+  border-bottom: 3px solid #d255d1;
 }
 
-.enter_code_after span>a {
-  color: #8A8A8A;
+.enter_code_after span > a {
+  color: #8a8a8a;
   text-align: center;
   font-family: Plus Jakarta Sans;
   font-size: 16px;
@@ -646,10 +632,10 @@ body {
   font-weight: 400;
   line-height: 160%;
   text-decoration: none;
-  transition: .4s ease-in;
+  transition: 0.4s ease-in;
 }
 
-.enter_code_after span>a:hover {
+.enter_code_after span > a:hover {
   text-decoration: underline;
 }
 
@@ -659,15 +645,13 @@ body {
 
 /*Sign_up Modal End */
 
-
-
 /* banner css */
 .banner {
   margin-bottom: 51px;
 }
 
 .banner h6 {
-  color: var(--website-green, #14F092);
+  color: var(--website-green, #14f092);
   font-size: 12px;
   font-weight: 400;
   line-height: 160%;
@@ -676,7 +660,7 @@ body {
 }
 
 .banner h1 {
-  color: #FFF;
+  color: #fff;
   font-size: 50px;
   font-weight: 500;
   line-height: normal;
@@ -684,7 +668,7 @@ body {
 }
 
 .banner p {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 16px;
   font-weight: 400;
   line-height: 160%;
@@ -694,7 +678,7 @@ body {
 .launch_app {
   padding-top: 14px;
   padding-bottom: 87px;
-  background-image: url('../src/assets/image/lunch_app.png');
+  background-image: url("../src/assets/image/lunch_app.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left 12.2% center;
@@ -708,18 +692,18 @@ body {
   gap: 40px;
   width: 192px;
   height: 40px;
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
   line-height: 150%;
   border-radius: 8px;
-  border: 1px solid #14F092;
-  background: rgba(49, 49, 49, 0.00);
+  border: 1px solid #14f092;
+  background: rgba(49, 49, 49, 0);
   margin-bottom: 83px;
 }
 
 .launch_app p {
-  color: #B1B1B1;
+  color: #b1b1b1;
   font-family: Plus Jakarta Sans;
   font-size: 14px;
   font-style: normal;
@@ -741,7 +725,7 @@ body {
 }
 
 .content {
-  color: #FFF;
+  color: #fff;
   font-size: 40px;
   font-weight: 500;
   line-height: normal;
@@ -749,14 +733,14 @@ body {
 }
 
 .paragraph {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 20px;
   font-weight: 400;
   line-height: 160%;
 }
 
 .crypto .title {
-  color: #14F092;
+  color: #14f092;
 }
 
 .pricing {
@@ -766,11 +750,11 @@ body {
 }
 
 .pricing .title {
-  color: var(--dashboard-light-blue, #59F5FF);
+  color: var(--dashboard-light-blue, #59f5ff);
 }
 
 .business .title {
-  color: #D255D1;
+  color: #d255d1;
 }
 
 .socialmedia {
@@ -780,13 +764,13 @@ body {
 }
 
 .socialmedia .title {
-  color: #FFC459;
+  color: #ffc459;
 }
 
 .socialmedia .signUp {
   display: flex;
   border-radius: 8px;
-  border: 1px solid #FFC157;
+  border: 1px solid #ffc157;
   background: rgba(49, 49, 49, 0.51);
   max-width: 362px;
   height: 40px;
@@ -797,7 +781,7 @@ body {
   width: 100%;
   background-color: transparent;
   border: none;
-  color: #AFACAC;
+  color: #afacac;
   padding-left: 16px;
 }
 
@@ -806,7 +790,7 @@ body {
 }
 
 .socialmedia .signUp input::placeholder {
-  color: #AFACAC;
+  color: #afacac;
   font-size: 14px;
   font-weight: 600;
   line-height: 150%;
@@ -816,7 +800,7 @@ body {
   white-space: nowrap;
   border: none;
   border-radius: 8px;
-  background: #FFC459;
+  background: #ffc459;
   padding: 0 40px;
   color: var(--website-grey-7, #070707);
   font-size: 13px;
@@ -830,7 +814,7 @@ body {
 }
 
 .faq h1 {
-  color: #FFF;
+  color: #fff;
   font-size: 40px;
   font-weight: 500;
   line-height: normal;
@@ -838,7 +822,7 @@ body {
 }
 
 .faq p {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -848,7 +832,7 @@ body {
 
 .faq .contact_btn {
   border-radius: 8px;
-  background: #FFC459;
+  background: #ffc459;
   border: none;
   padding: 10px 30px;
   color: var(--website-grey-7, #070707);
@@ -873,12 +857,12 @@ body {
 
 .accordion {
   --bs-accordion-bg: unset !important;
-  --bs-accordion-color: var(--website-grey-1, #CDCDCD) !important;
+  --bs-accordion-color: var(--website-grey-1, #cdcdcd) !important;
   --bs-accordion-border-color: transparent !important;
 }
 
 .accordion-button {
-  color: var(--website-white, #FFF);
+  color: var(--website-white, #fff);
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
@@ -887,9 +871,8 @@ body {
 
 .accordion-button:not(.collapsed) {
   background-color: unset !important;
-  color: var(--website-white, #FFF);
+  color: var(--website-white, #fff);
 }
-
 
 .accordion-button::before {
   background-image: url("../src/assets/image/plus.png") !important;
@@ -925,11 +908,11 @@ body {
 }
 
 .accordion-button::before {
-  background-image: url('../src/assets/image/plus.png') !important;
+  background-image: url("../src/assets/image/plus.png") !important;
 }
 
 .accordion-button:not(.collapsed)::before {
-  background-image: url('../src/assets/image/Minus.png') !important;
+  background-image: url("../src/assets/image/Minus.png") !important;
 }
 
 .accordion-button:focus {
@@ -946,7 +929,7 @@ footer img {
 }
 
 footer h6 {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 16px;
   font-weight: 400;
   line-height: 160%;
@@ -955,7 +938,7 @@ footer h6 {
 
 footer p,
 footer a {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 14px;
   font-weight: 400;
   line-height: 160%;
@@ -966,12 +949,10 @@ footer .privacy {
   gap: 60px;
 }
 
-
 /* timeline Start */
 .timeline_card {
   position: relative;
 }
-
 
 .timeline_card:first-child:before {
   content: "";
@@ -982,10 +963,8 @@ footer .privacy {
   width: 50%;
   /* border-radius: 100px;  */
   border: 5px solid transparent;
-  background: linear-gradient(323deg, #59F5FF, #14F092) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(323deg, #59f5ff, #14f092) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
@@ -999,10 +978,8 @@ footer .privacy {
   width: 50%;
   /* border-radius: 100px;  */
   border: 5px solid transparent;
-  background: linear-gradient(358deg, #D255D1, #59F5FF) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(358deg, #d255d1, #59f5ff) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
@@ -1016,14 +993,11 @@ footer .privacy {
   width: 50%;
   /* border-radius: 100px;  */
   border: 5px solid transparent;
-  background: linear-gradient(45deg, black, #FFC459, #D255D1) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(45deg, black, #ffc459, #d255d1) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
-
 
 .timeline_card:nth-child(odd) {
   padding: 63px 0 63px 35px;
@@ -1036,7 +1010,6 @@ footer .privacy {
 .timeline_card:nth-child(even) {
   padding: 30px 30px 30px 0;
 }
-
 
 .timeline_card:nth-child(odd)::before {
   left: 0px;
@@ -1070,16 +1043,15 @@ footer .privacy {
 .section-timeline {
   position: relative;
   margin-top: -221px;
-
 }
 
 .section-timeline::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 10px;
   width: 10px;
   border-radius: 50%;
-  background-color: #14F092;
+  background-color: #14f092;
   top: -8px;
   transform: translateX(-37%);
 }
@@ -1089,7 +1061,7 @@ footer .privacy {
 }
 
 .crypto::before {
-  content: url('../src/assets/image/crypoto.png');
+  content: url("../src/assets/image/crypoto.png");
   position: absolute;
   border-radius: 50%;
   top: 11%;
@@ -1123,7 +1095,7 @@ footer .privacy {
 }
 
 .socialmedia::before {
-  content: url('../src/assets/image/social_media_1.png');
+  content: url("../src/assets/image/social_media_1.png");
   position: absolute;
   border-radius: 50%;
   top: -30px;
@@ -1135,12 +1107,9 @@ footer .privacy {
 
 /* End Home page */
 
-
-
-
 /* Pricing Page Start */
 .pricing_page {
-  background: url('../src/assets/image/pricing.png');
+  background: url("../src/assets/image/pricing.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1149,7 +1118,7 @@ footer .privacy {
 }
 
 .prc_banner h1 {
-  color: #FFF;
+  color: #fff;
   font-size: 50px;
   font-weight: 500;
   line-height: normal;
@@ -1158,7 +1127,6 @@ footer .privacy {
 .free_pro {
   margin-bottom: 64px;
 }
-
 
 .free_pro_inner {
   gap: 69px;
@@ -1169,14 +1137,13 @@ footer .privacy {
   margin-bottom: 100px;
 }
 
-
 .free_pro button {
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
   font-weight: 500;
   line-height: normal;
   background: linear-gradient(#070707, #070707) padding-box,
-    linear-gradient(to right, #FFC459, #ED6344) border-box;
+    linear-gradient(to right, #ffc459, #ed6344) border-box;
   border-radius: 100px;
   border: 1px solid transparent;
   padding: 18px 37px;
@@ -1189,7 +1156,6 @@ footer .privacy {
   text-decoration: none !important;
 }
 
-
 .free_pro .free img {
   position: absolute;
   right: 0;
@@ -1197,7 +1163,7 @@ footer .privacy {
 }
 
 .free_pro h2 {
-  color: #FFF;
+  color: #fff;
   font-size: 40px;
   font-weight: 500;
   line-height: normal;
@@ -1207,14 +1173,14 @@ footer .privacy {
   font-size: 50px;
   font-weight: 500;
   line-height: normal;
-  background: linear-gradient(136deg, #FFC459 0%, #14F092 100%);
+  background: linear-gradient(136deg, #ffc459 0%, #14f092 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .free_pro p {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -1222,7 +1188,7 @@ footer .privacy {
 }
 
 .free_pro .options h6 {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
@@ -1238,14 +1204,13 @@ footer .privacy {
 
 .orange_border::before {
   position: absolute;
-  content: '';
+  content: "";
   width: 70%;
   height: 2px;
-  background-image: linear-gradient(to left, black, #423C42, #FFC459);
+  background-image: linear-gradient(to left, black, #423c42, #ffc459);
 }
 
 /* Pricing Page End */
-
 
 /* Main Payment Page Start */
 
@@ -1280,7 +1245,7 @@ footer .privacy {
 }
 
 .plan_details h4 {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -1288,11 +1253,11 @@ footer .privacy {
 
 .plan_details p {
   font-size: 24px;
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
 }
 
 .turning_pro h5 {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -1317,7 +1282,7 @@ footer .privacy {
 }
 
 .payment h3 {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -1330,7 +1295,7 @@ footer .privacy {
   border-radius: 4px;
   background: #111212;
   padding: 10px 16px;
-  color: #8A8A8A;
+  color: #8a8a8a;
   text-align: center;
   font-size: 12px;
   font-style: normal;
@@ -1338,17 +1303,16 @@ footer .privacy {
   line-height: 150%;
   margin-bottom: 40px;
   white-space: nowrap;
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
-
 .active {
-  border: 1px solid #FFC459 !important;
+  border: 1px solid #ffc459 !important;
   color: #fff !important;
 }
 
 .amount h6 {
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
@@ -1408,7 +1372,7 @@ footer .privacy {
 
 .payment_login p,
 .payment_login a {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 20px;
   font-weight: 400;
   line-height: 160%;
@@ -1416,11 +1380,11 @@ footer .privacy {
 }
 
 .payment_login a {
-  color: #14F092;
+  color: #14f092;
 }
 
 .payment_login label {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: 500;
   line-height: 160%;
@@ -1441,7 +1405,7 @@ footer .privacy {
 } */
 
 .payment h5 {
-  color: #FFF;
+  color: #fff;
   font-family: Plus Jakarta Sans;
   font-size: 20px;
   font-style: normal;
@@ -1451,7 +1415,7 @@ footer .privacy {
 }
 
 .payment img {
-  transition: .4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .payment img:hover {
@@ -1477,7 +1441,7 @@ hr {
 }
 
 .apple_pay_modal span {
-  color: #8A8A8A;
+  color: #8a8a8a;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -1486,7 +1450,7 @@ hr {
 }
 
 .apple_pay_modal p {
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -1500,9 +1464,8 @@ hr {
 
 /* Modal End */
 
-
 .credit_card label {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -1538,20 +1501,18 @@ hr {
   color: #fff;
 }
 
-
 .credit_card .form-select:focus {
   color: #fff;
   outline: 0;
   box-shadow: none !important;
 }
 
-
 .form_data {
   margin-bottom: 54px;
 }
 
 .form_data p {
-  color: #8A8A8A;
+  color: #8a8a8a;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -1568,7 +1529,7 @@ hr {
 }
 
 .billing_information p {
-  color: var(--website-grey-1, #CDCDCD);
+  color: var(--website-grey-1, #cdcdcd);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -1587,7 +1548,7 @@ hr {
 }
 
 .profile h4 {
-  color: #FFF;
+  color: #fff;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -1599,7 +1560,6 @@ hr {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-
 }
 
 .profile {
@@ -1640,8 +1600,8 @@ hr {
   line-height: normal;
   padding: 18px 52px;
   border-radius: 100px;
-  background: linear-gradient(68deg, #FFC459 6.11%, #D255D1 97.24%);
-  transition: .4s ease-in-out;
+  background: linear-gradient(68deg, #ffc459 6.11%, #d255d1 97.24%);
+  transition: 0.4s ease-in-out;
   margin-top: 43px;
   margin-bottom: 112px;
 }
@@ -1656,7 +1616,7 @@ hr {
 } */
 
 .options h6 {
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
@@ -1679,7 +1639,6 @@ hr {
   cursor: pointer;
   position: relative;
 }
-
 
 .payment_option input[type="radio"] {
   display: none;
@@ -1713,25 +1672,21 @@ hr {
   transition: transform 400ms ease;
 }
 
-.payment_option input[type="radio"]:checked+label::before {
-  border-color: #14F092;
-
-
-
+.payment_option input[type="radio"]:checked + label::before {
+  border-color: #14f092;
 }
 
-.payment_option input[type="radio"]:checked+label::after {
-  background-color: #14F092;
-  border: 1.5px solid #14F092;
-
+.payment_option input[type="radio"]:checked + label::after {
+  background-color: #14f092;
+  border: 1.5px solid #14f092;
 }
 
-.payment_option form input:checked~.label-text {
+.payment_option form input:checked ~ .label-text {
   color: #fff;
 }
 
-.payment_option form input:checked:first-child~.ipayClass img {
-  border: 1px solid #14F092;
+.payment_option form input:checked:first-child ~ .ipayClass img {
+  border: 1px solid #14f092;
   border-radius: 5px;
 }
 
@@ -1752,8 +1707,45 @@ input:focus-visible {
   outline: none !important;
 }
 
+/* password changes modal */
 
+.passwordChange_modal {
+  padding: 49px 69px;
+}
+.passwordChange_modal h3 {
+  color: #fff;
+  font-family: Plus Jakarta Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
+.passwordChange_modal form p {
+  color: #14f092;
+  font-family: Plus Jakarta Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  margin-bottom: 15px;
+}
+
+.changePasswordButton {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%;
+  border-radius: 6px;
+  border: 1px solid #14f092;
+  background: #181818;
+  /* width: 111px; */
+  padding: 5px 34px;
+  white-space: nowrap;
+  transition: 0.4s ease-in-out;
+}
 
 /* responsive css */
 
@@ -1770,8 +1762,7 @@ input:focus-visible {
   }
 }
 
-@media only screen and (max-width:1024px) {
-
+@media only screen and (max-width: 1024px) {
   .container_1 {
     padding-left: 3.5%;
   }
@@ -1794,11 +1785,10 @@ input:focus-visible {
   }
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   .container_1 {
     padding-left: 4%;
   }
-
 
   .timeline_card:nth-child(odd) {
     padding: 63px 0 63px 30px;
@@ -1815,7 +1805,6 @@ input:focus-visible {
   .business {
     padding-right: 20px;
   }
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -1839,8 +1828,8 @@ input:focus-visible {
 
   .signup_btn {
     text-align: center;
-    background: #14F092;
-    transition: .4s ease-in-out;
+    background: #14f092;
+    transition: 0.4s ease-in-out;
   }
 
   .signup_btn:hover {
@@ -1853,7 +1842,7 @@ input:focus-visible {
   }
 
   .signIn_modal p,
-  .signIn_modal p>a {
+  .signIn_modal p > a {
     font-size: 13px;
     text-align: center;
   }
@@ -1902,7 +1891,6 @@ input:focus-visible {
     font-size: 14px;
   }
 
-
   .continue_btn,
   .userName_btn,
   .pass_btn {
@@ -1937,7 +1925,7 @@ input:focus-visible {
   }
 
   .enter_code_after h6,
-  .enter_code_after span>a {
+  .enter_code_after span > a {
     font-size: 14px;
   }
 
@@ -2038,7 +2026,6 @@ input:focus-visible {
   }
 
   .timeline_card:nth-child(odd)::before {
-
     border-width: 0px 0 0px 2px;
     border-radius: 0px;
   }
@@ -2060,7 +2047,6 @@ input:focus-visible {
     margin-top: 97px;
     margin-bottom: 174px;
   }
-
 
   .business {
     padding-left: 25px;
@@ -2108,7 +2094,6 @@ input:focus-visible {
   }
 
   .business::before {
-
     top: -23px;
     right: 71%;
   }
@@ -2123,7 +2108,6 @@ input:focus-visible {
     right: 67%;
   }
 }
-
 
 @media only screen and (max-width: 375px) {
   /* .timeline_card:nth-child(even)::before {
@@ -2149,9 +2133,7 @@ input:focus-visible {
     background: #070707;
     right: 63%;
   }
-
 }
-
 
 @media only screen and (max-width: 320px) {
   .timeline_card:nth-child(even)::before {
@@ -2178,8 +2160,7 @@ input:focus-visible {
 
 /* Pricing Page Start */
 
-@media screen and (max-width:767px) {
-
+@media screen and (max-width: 767px) {
   .orange_border {
     display: none;
   }
@@ -2229,13 +2210,11 @@ input:focus-visible {
     padding: 0 0;
     width: 76px;
   }
-
 }
 
 /* Pricing Page End */
 
 /* payment Page Start */
-
 
 @media only screen and (max-width: 767px) {
   .turning_pro {
@@ -2246,7 +2225,6 @@ input:focus-visible {
     font-size: 32px;
     margin-bottom: 40px;
   }
-
 
   .payment h1 {
     font-size: 24px;
@@ -2268,7 +2246,6 @@ input:focus-visible {
 
   .amount h6 {
     font-size: 20px;
-    ;
   }
 
   .pay_box {
@@ -2414,7 +2391,6 @@ input:focus-visible {
     margin-top: 12px;
     margin-bottom: 12px;
   }
-
 }
 
 @media only screen and (max-width: 320px) {

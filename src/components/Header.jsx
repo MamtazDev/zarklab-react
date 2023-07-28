@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import logo from "../assets/image/logo.png";
 import nextArrow from "../assets/image/next-arrow.png";
+import passwordArrow from "../assets/image/password_arrow.png";
 import signUp from "../assets/image/sign_up.png";
 import metamask from "../assets/image/metamask.png";
 import google from "../assets/image/google.png";
@@ -12,6 +13,7 @@ import back from "../assets/image/back_button.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { Amplify, Auth } from "aws-amplify";
+import PasswordForgetModal from "../utils/PasswordForgetModal";
 // AUTH_COOKIE_STORAGE_DOMAIN
 const AwsConfigAuth = {
   region: "us-east-1",
@@ -385,71 +387,16 @@ const Header = () => {
 
       {/* <!-- Forgot password Modal Start --> */}
 
-      <div
-        className="modal fade"
-        id="exampleModal_forgetPassword"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered modal-lg">
-          <div className="modal-content">
-            <div className="modal-body">
-              <div className="signIn_modal">
-                <h2 className="mb-3">
-                  Don’t worry, we’re all a little forgetful sometimes.
-                </h2>
-                <h6 className="text-white mb-5">
-                  Enter your email to retrieve your password.
-                </h6>
-                <form action="">
-                  <div className="d-flex align-items-center gap-1 mb-5">
-                    <img src={signUp} alt="" />
-                    <input
-                      className="form-control"
-                      type="email"
-                      name=""
-                      id=""
-                      placeholder="Email"
-                    />
-                  </div>
-
-                  <div className="sign_in_btn text-center">
-                    <button type="submit" style={{ marginBottom: "24px" }}>
-                      Retrieve Password
-                    </button>
-                    <p>
-                      Not a member yet?{" "}
-                      <a
-                        href=""
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal_1"
-                      >
-                        Create an account
-                      </a>
-                    </p>
-                  </div>
-
-                  <hr />
-
-                  <h3>Or sign in with</h3>
-                  <div className="d-flex justify-content-between align-items-center social_login">
-                    <a href="#">
-                      <img className="img-fluid" src={fb} />
-                    </a>
-                    <a href="#">
-                      <img className="img-fluid" src={google} />
-                    </a>
-                    <a href="#">
-                      <img className="img-fluid" src={metamask} />
-                    </a>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PasswordForgetModal
+        metamask={metamask}
+        google={google}
+        fb={fb}
+        signUp={signUp}
+        code={code}
+        grayeye={grayeye}
+        passwordArrow={signUp}
+        eye={eye}
+      />
 
       {/* <!-- Forgot password Modal End --> */}
 
@@ -510,10 +457,7 @@ const Header = () => {
                                   Create a password*
                                 </label>
                                 <div className="d-flex align-items-center gap-1 mb-3 position-relative">
-                                  <img
-                                    src="./assets/image/password_arrow.png"
-                                    alt=""
-                                  />
+                                  <img src={passwordArrow} alt="" />
                                   <input
                                     className="form-control"
                                     type={showPassword ? "text" : "password"}
