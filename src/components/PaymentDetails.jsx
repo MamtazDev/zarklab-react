@@ -5,9 +5,23 @@ import applePayModal from "../assets/image/apple_pay_modal.png";
 import done from "../assets/image/done.png";
 import profile from "../assets/image/profile_img.png";
 import { AuthContext } from "../contexts/AuthContext";
+import { PayPalButton } from "../utils/payments/PaypalPayment";
+import { Elements } from "@stripe/react-stripe-js";
+import PaymentForm from "../utils/payments/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+
+const public_key = "pk_test_Pq2BDpPTNhfsFHllBvY2GV6700TYOgJ1cD";
+const secret_key = "sk_test_pggpOl1FECwCoLsgXDTQjtjF00An8mKwrj";
+const stripePromise = loadStripe(public_key);
+const id = 123;
 
 const PaymentDetails = () => {
   const { user, setUser } = useContext(AuthContext);
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: `${id}_secret_${secret_key}`,
+  };
 
   const [showCredit, setShowCredit] = useState(false);
   const [showPaypal, setShowPaypal] = useState(false);
@@ -167,109 +181,115 @@ const PaymentDetails = () => {
         </form>
       </div>
       {showCredit && (
-        <div ref={resultRef} className="credit_card">
-          <form action="">
-            <div className="form_data">
-              <label className="form-label">Card Number</label>
-              <input className="form-control w-100" type="text" name="" />
-            </div>
+        <>
+          <div ref={resultRef} className="credit_card">
+            <form action="">
+              <div className="form_data" id="card-number">
+                <label className="form-label">Card Number</label>
+                <input className="form-control w-100" type="text" name="" />
+              </div>
 
-            <div className="d-lg-flex justify-content-between">
-              <div className="form_data">
-                <label className="form-label">Expiration Date (MM/ YY)</label>
-                <div className="d-flex justify-content-between align-items-center gap-2 gap-lg-4">
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected></option>
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="3">April</option>
-                    <option value="3">May</option>
-                    <option value="3">June</option>
-                    <option value="3">July</option>
-                    <option value="3">August</option>
-                    <option value="3">September</option>
-                    <option value="3">October</option>
-                    <option value="3">November</option>
-                    <option value="3">December</option>
-                  </select>
-                  <p>/</p>
-                  <select
-                    className="form-select"
-                    aria-label="Default select example"
-                  >
-                    <option selected></option>
-                    <option value="1">2023</option>
-                    <option value="2">2024</option>
-                    <option value="3">2025</option>
-                  </select>
+              <div className="d-lg-flex justify-content-between">
+                <div className="form_data">
+                  <label className="form-label">Expiration Date (MM/ YY)</label>
+                  <div className="d-flex justify-content-between align-items-center gap-2 gap-lg-4">
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected></option>
+                      <option value="01">January</option>
+                      <option value="02">February</option>
+                      <option value="03">March</option>
+                      <option value="04">April</option>
+                      <option value="05">May</option>
+                      <option value="06">June</option>
+                      <option value="07">July</option>
+                      <option value="08">August</option>
+                      <option value="09">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <p>/</p>
+                    <select
+                      className="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected></option>
+                      <option value="23">2023</option>
+                      <option value="24">2024</option>
+                      <option value="25">2025</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="form_data">
+                  <label className="form-label">CVV/ CVC</label>
+                  <input className="form-control" type="number" name="" />
                 </div>
               </div>
 
-              <div className="form_data">
-                <label className="form-label">CVV/ CVC</label>
-                <input className="form-control" type="number" name="" />
-              </div>
-            </div>
+              <div className="billing_information">
+                <h3>Billing information</h3>
+                <p>Please confirm your billing details to proceed. </p>
 
-            <div className="billing_information">
-              <h3>Billing information</h3>
-              <p>Please confirm your billing details to proceed. </p>
+                <div className="profile d-flex gap-4">
+                  <img src={profile} alt="" />
+                  <div>
+                    <h4>{user ? user : "Penzie"}</h4>
+                    <p>Personal Account</p>
+                  </div>
+                </div>
 
-              <div className="profile d-flex gap-4">
-                <img src={profile} alt="" />
-                <div>
-                  <h4>{user ? user : "Penzie"}</h4>
-                  <p>Personal Account</p>
+                <div className="d-flex bill_input">
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="First Name*"
+                  />
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Last Name*"
+                  />
+                </div>
+
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Address (P.O. box, company name, c/o)*"
+                />
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Address line 2 (Apartment, suite, unit)"
+                />
+
+                <div className="d-flex bill_input">
+                  <input
+                    className="form-control"
+                    type="number"
+                    placeholder="Postal Code*"
+                  />
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Country*"
+                  />
                 </div>
               </div>
 
-              <div className="d-flex bill_input">
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="First Name*"
-                />
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Last Name*"
-                />
+              <div className="submit_btn">
+                <button type="submit">Pay Now</button>
               </div>
+            </form>
+          </div>
 
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Address (P.O. box, company name, c/o)*"
-              />
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Address line 2 (Apartment, suite, unit)"
-              />
-
-              <div className="d-flex bill_input">
-                <input
-                  className="form-control"
-                  type="number"
-                  placeholder="Postal Code*"
-                />
-                <input
-                  className="form-control"
-                  type="text"
-                  placeholder="Country*"
-                />
-              </div>
-            </div>
-
-            <div className="submit_btn">
-              <button type="submit">Pay Now</button>
-            </div>
-          </form>
-        </div>
+          <Elements stripe={stripePromise}>
+            <PaymentForm />
+          </Elements>
+        </>
       )}
       {showPaypal && (
         <div className="paypal">
@@ -277,6 +297,10 @@ const PaymentDetails = () => {
           <a href="#" target="_blank">
             <img src={paypal} alt="" />
           </a>
+          {/* <PayPalButton /> */}
+          {/* <Elements stripe={stripePromise}>
+            <PaymentForm />
+          </Elements> */}
         </div>
       )}
     </div>

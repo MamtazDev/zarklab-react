@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { Auth } from "aws-amplify";
 
 const PasswordForgetModal = ({
   signUp,
@@ -24,9 +25,18 @@ const PasswordForgetModal = ({
   const [isMatched, setIsMatched] = useState(false);
   const [username, setUserName] = useState("");
 
-  const handleNext = () => {
+  const closeSignInModal = useRef(null);
+
+  const handleNext = async () => {
     if (username) {
-      setModalStep((prev) => prev + 1);
+      try {
+        const data = await Auth.forgotPassword(username);
+        if (data) {
+          setModalStep((prev) => prev + 1);
+        }
+      } catch (err) {
+        console.log(err);
+      }
     }
   };
 
@@ -58,6 +68,13 @@ const PasswordForgetModal = ({
     console.log(index, "inddd");
   };
 
+  const handleKeyDown = (index, e) => {
+    if (e.key === "Backspace" && index > 0 && otp[index] === "") {
+      // Focus on the previous input field when Backspace is pressed
+      inputRefs.current[index - 1].focus();
+    }
+  };
+
   const getPasswordStrengthLabel = (value) => {
     if (value.length === 0) {
       return "Please enter a password";
@@ -87,20 +104,25 @@ const PasswordForgetModal = ({
     }
   };
 
-  const handleChangePasswordSubmit = (e) => {
+  const handleChangePasswordSubmit = async (e) => {
     e.preventDefault();
 
     const code = otp.join("");
+    const newPassword = password;
 
-    const data = {
-      code,
-      username,
-      password,
-    };
-    console.log(data);
+    try {
+      const data = await Auth.forgotPasswordSubmit(username, code, newPassword);
+      //   closeSignInModal.current.click();
+      if (data === "SUCCESS ") {
+        closeSignInModal.current.click();
+        window.location.replace(
+          "https://zarklab-dashboard-new-pro.vercel.app/token"
+        );
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
-
-  console.log(otp);
 
   return (
     <div
@@ -113,6 +135,13 @@ const PasswordForgetModal = ({
       <div className="modal-dialog modal-dialog-centered modal-lg">
         <div className="modal-content">
           <div className="modal-body">
+            <button
+              ref={closeSignInModal}
+              type="button"
+              class="btn-close d-none"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
             {modalStep === 1 && (
               <div className="signIn_modal">
                 <h2 className="mb-3">
