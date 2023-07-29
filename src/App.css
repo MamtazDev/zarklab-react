@@ -1112,7 +1112,6 @@ footer .privacy {
 .pricing_page {
   background: url("../src/assets/image/pricing.png");
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
   padding-top: 619px;
   padding-bottom: 200px;
@@ -2404,3 +2403,8 @@ input:focus-visible {
 /* Payment Fequently Page End */
 
 /* payment Page End */
+.StripeElement {
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding:25px 20px;
+}
