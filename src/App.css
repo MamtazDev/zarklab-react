@@ -19,6 +19,7 @@ p {
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background: var(--website-grey-7, #070707);
+  overflow-x: hidden;
 }
 
 .container {
@@ -322,7 +323,7 @@ body {
 }
 
 .signIn_modal p,
-.signIn_modal p > a {
+.signIn_modal p>a {
   color: #cdcdcd;
   font-size: 15px;
   font-style: normal;
@@ -330,13 +331,13 @@ body {
   line-height: 160%;
 }
 
-.signIn_modal p > a {
+.signIn_modal p>a {
   color: #14f092;
   text-decoration: none;
   margin-left: 0px;
 }
 
-.signIn_modal p > a:hover {
+.signIn_modal p>a:hover {
   text-decoration: underline;
 }
 
@@ -374,7 +375,7 @@ body {
   margin-bottom: 18px;
 }
 
-.social_login a > img {
+.social_login a>img {
   border-radius: 5px;
   cursor: pointer;
   object-fit: contain;
@@ -602,7 +603,7 @@ body {
   text-decoration: underline;
 }
 
-.enter_code_after > h4 {
+.enter_code_after>h4 {
   color: #14f092;
 }
 
@@ -623,7 +624,7 @@ body {
   border-bottom: 3px solid #d255d1;
 }
 
-.enter_code_after span > a {
+.enter_code_after span>a {
   color: #8a8a8a;
   text-align: center;
   font-family: Plus Jakarta Sans;
@@ -635,7 +636,7 @@ body {
   transition: 0.4s ease-in;
 }
 
-.enter_code_after span > a:hover {
+.enter_code_after span>a:hover {
   text-decoration: underline;
 }
 
@@ -1672,20 +1673,20 @@ hr {
   transition: transform 400ms ease;
 }
 
-.payment_option input[type="radio"]:checked + label::before {
+.payment_option input[type="radio"]:checked+label::before {
   border-color: #14f092;
 }
 
-.payment_option input[type="radio"]:checked + label::after {
+.payment_option input[type="radio"]:checked+label::after {
   background-color: #14f092;
   border: 1.5px solid #14f092;
 }
 
-.payment_option form input:checked ~ .label-text {
+.payment_option form input:checked~.label-text {
   color: #fff;
 }
 
-.payment_option form input:checked:first-child ~ .ipayClass img {
+.payment_option form input:checked:first-child~.ipayClass img {
   border: 1px solid #14f092;
   border-radius: 5px;
 }
@@ -1712,6 +1713,7 @@ input:focus-visible {
 .passwordChange_modal {
   padding: 49px 69px;
 }
+
 .passwordChange_modal h3 {
   color: #fff;
   font-family: Plus Jakarta Sans;
@@ -1842,7 +1844,7 @@ input:focus-visible {
   }
 
   .signIn_modal p,
-  .signIn_modal p > a {
+  .signIn_modal p>a {
     font-size: 13px;
     text-align: center;
   }
@@ -1925,7 +1927,7 @@ input:focus-visible {
   }
 
   .enter_code_after h6,
-  .enter_code_after span > a {
+  .enter_code_after span>a {
     font-size: 14px;
   }
 
