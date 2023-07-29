@@ -10,7 +10,12 @@ const CruptoChat = () => {
   return (
     <div>
       {/* <!-- First Section for time line --> */}
-      <section className="launch_app">
+      <section
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="linear"
+        className="launch_app"
+      >
         <div className="container">
           <div className="d-flex gap-5 align-items-center">
             <div>
@@ -28,7 +33,9 @@ const CruptoChat = () => {
           </div>
         </div>
       </section>
-      <section className="crypto">
+      <section  data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="linear" className="crypto">
         <div className="container">
           <div className="row align-items-end">
             <div className="col-12 col-lg-6">

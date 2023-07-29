@@ -3,7 +3,9 @@ import liveBusiness from "../assets/image/live-business.png";
 
 const LiveBusiness = () => {
   return (
-    <section className="business">
+    <section data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="linear" className="business">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-lg-6">

@@ -3,7 +3,9 @@ import pricemanipulation from "../assets/image/price-manipulation.png";
 
 const PriceManipulation = () => {
     return (
-        <section className="pricing">
+        <section data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="linear" className="pricing">
                 <div className="container">
                   <div className="row align-items-center">
                     <div className="col-12 col-lg-6">

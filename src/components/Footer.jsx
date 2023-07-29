@@ -5,7 +5,9 @@ import { useLocation } from "react-router-dom";
 const Footer = () => {
   const location = useLocation();
   return (
-    <footer>
+    <footer data-aos="fade-up"
+    data-aos-duration="1000"
+    data-aos-easing="linear">
       <div className="container">
         {location.pathname !== "/payment" && (
           <>
