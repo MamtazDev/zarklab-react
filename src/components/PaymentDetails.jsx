@@ -11,11 +11,17 @@ import PaymentForm from "../utils/payments/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
 
+// import { Elements } from '@stripe/react-stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
+
+// const stripePromise = loadStripe('YOUR_STRIPE_PUBLISHABLE_KEY');
+
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import ApplePaymentForm from "./ApplePay";
 
 
-const public_key = "pk_test_Pq2BDpPTNhfsFHllBvY2GV6700TYOgJ1cD";
-const secret_key = "sk_test_pggpOl1FECwCoLsgXDTQjtjF00An8mKwrj";
+const public_key = import.meta.env.VITE_public_key;
+const secret_key = import.meta.env.VITE_secret_key;
 const stripePromise = loadStripe(public_key);
 const id = 123;
 
@@ -57,7 +63,7 @@ const PaymentDetails = () => {
 
 
   // Replace with your PayPal client ID
-  const clientId = 'AYD3fnBza_bDzd4A9iUd30WsW27MOfKcKJPSDeWE8aGf4vBqa44fy9OGEHfAoTwJTyuk-_w5aizQLsau';
+  // const clientId = 'AYD3fnBza_bDzd4A9iUd30WsW27MOfKcKJPSDeWE8aGf4vBqa44fy9OGEHfAoTwJTyuk-_w5aizQLsau';
 
   // Called when the payment is completed successfully
   const onSuccess = (details, data) => {
@@ -96,7 +102,12 @@ const PaymentDetails = () => {
             />
             <label htmlFor="ipay" className="label-img ipayClass">
               <img className="ipayClass" src={applePay} alt="" />
+              <Elements stripe={stripePromise}>
+                {/* <ApplePaymentForm /> */}
+                {/* Your payment form or component */}
+              </Elements>
             </label>
+
           </div>
 
           <div onClick={handleCredit}>
@@ -227,13 +238,14 @@ const PaymentDetails = () => {
           </a> */}
 
 
-          <PayPalScriptProvider options={{ 'client-id': 'AYD3fnBza_bDzd4A9iUd30WsW27MOfKcKJPSDeWE8aGf4vBqa44fy9OGEHfAoTwJTyuk-_w5aizQLsau' }}>
+          <PayPalScriptProvider options={{ 'client-id': import.meta.env.VITE_clientId }}>
             <PayPalButtons
 
               style={{
                 layout: 'horizontal', // or 'vertical' if you prefer a vertical layout
                 // tagline: false, // Hide the PayPal tagline
               }}
+
 
               // fundingSource={{
               //   allowed: [window.paypal.FUNDING.PAYPAL], // Only show the PayPal button
