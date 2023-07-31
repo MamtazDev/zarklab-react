@@ -47,7 +47,7 @@ const Header = () => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [signInValue, setSignInValue] = useState({});
   const [signUPValue, setSignUpValue] = useState({});
-  const[signInError, setSignInError]=useState("")
+  const [signInError, setSignInError] = useState("");
 
   const [isOtpVerified, setIsOtpVerified] = useState(false);
 
@@ -202,9 +202,8 @@ const Header = () => {
 
       const user = await Auth.signIn(username, password);
 
-
       if (user) {
-        setSignInError("")
+        setSignInError("");
         closeSignInModal.current.click();
         window.location.replace(
           "https://zarklab-dashboard-new-pro.vercel.app/token"
@@ -212,10 +211,8 @@ const Header = () => {
       }
     } catch (error) {
       console.log("error signing in", error);
-      setSignInError("Incorrect username or password")
+      setSignInError("Wrong password. Try again");
     }
-
-    
   };
 
   useEffect(() => {
