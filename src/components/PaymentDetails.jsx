@@ -10,6 +10,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import PaymentForm from "../utils/payments/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
+
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+
+
 const public_key = "pk_test_Pq2BDpPTNhfsFHllBvY2GV6700TYOgJ1cD";
 const secret_key = "sk_test_pggpOl1FECwCoLsgXDTQjtjF00An8mKwrj";
 const stripePromise = loadStripe(public_key);
@@ -49,6 +53,28 @@ const PaymentDetails = () => {
       paypalResultRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+
+
+  // Replace with your PayPal client ID
+  const clientId = 'AYD3fnBza_bDzd4A9iUd30WsW27MOfKcKJPSDeWE8aGf4vBqa44fy9OGEHfAoTwJTyuk-_w5aizQLsau';
+
+  // Called when the payment is completed successfully
+  const onSuccess = (details, data) => {
+    console.log('Transaction completed by', details.payer.name.given_name);
+    // You can handle the successful payment here, e.g., update your database, show success message, etc.
+  };
+
+  // Called when the payment process is cancelled by the user
+  const onCancel = (data) => {
+    console.log('Payment cancelled');
+  };
+
+  // Called when an error occurs during the payment process
+  const onError = (err) => {
+    console.error('Error:', err);
+  };
+
 
   return (
     <div className="payment">
@@ -183,29 +209,78 @@ const PaymentDetails = () => {
       {showCredit && (
         <>
           <div ref={resultRef} className="credit_card">
-          
+
             <Elements stripe={stripePromise}>
-            <PaymentForm />
-          </Elements>
+              <PaymentForm />
+            </Elements>
           </div>
 
-        
+
         </>
       )}
+      {/* <h1>Paypal</h1> */}
       {showPaypal && (
         <div className="paypal">
           <h5>Sign in to PayPal</h5>
-          <a href="#" target="_blank">
+          {/* <a href="#" target="_blank">
             <img src={paypal} alt="" />
-          </a>
+          </a> */}
+
+
+          <PayPalScriptProvider options={{ 'client-id': 'AYD3fnBza_bDzd4A9iUd30WsW27MOfKcKJPSDeWE8aGf4vBqa44fy9OGEHfAoTwJTyuk-_w5aizQLsau' }}>
+            <PayPalButtons
+
+              style={{
+                layout: 'horizontal', // or 'vertical' if you prefer a vertical layout
+                // tagline: false, // Hide the PayPal tagline
+              }}
+
+              // fundingSource={{
+              //   allowed: [window.paypal.FUNDING.PAYPAL], // Only show the PayPal button
+              // }}
+
+              createOrder={(data, actions) => {
+                // Replace this with your order creation logic on your server
+                return actions.order.create({
+                  purchase_units: [
+                    {
+                      amount: {
+                        value: '10.00', // Replace with the payment amount
+                      },
+                    },
+                  ],
+                });
+              }}
+              onApprove={(data, actions) => {
+                return actions.order.capture().then(function (details) {
+                  onSuccess(details, data);
+                });
+              }}
+              onCancel={onCancel}
+              onError={onError}
+            />
+          </PayPalScriptProvider>
+
+
           {/* <PayPalButton /> */}
           {/* <Elements stripe={stripePromise}>
             <PaymentForm />
           </Elements> */}
         </div>
       )}
+
+
+
+
+
+
+
     </div>
   );
 };
 
 export default PaymentDetails;
+
+
+// PayPal JavaScript SDK: https://developer.paypal.com/docs/business/javascript-sdk/javascript-sdk-reference/
+// @paypal/react-paypal-js: https://github.com/paypal/react-paypal-js
