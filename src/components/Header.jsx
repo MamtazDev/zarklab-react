@@ -342,7 +342,7 @@ const Header = () => {
                       style={{ cursor: "pointer" }}
                       onClick={() => setShowPassword(!showPassword)}
                       className="position-absolute end-0 img-fluid mb-2"
-                      src={showPassword ? grayeye : eye}
+                      src={showPassword ? eye : grayeye}
                       alt=""
                     />
                   </div>
@@ -424,11 +424,11 @@ const Header = () => {
 
                     <form onSubmit={signUpHandler}>
                       <label className="form-label">Enter your email*</label>
-                      <div className="d-flex justify-content-between align-items-center flex-wrap gap-4">
-                        <div className="d-flex align-items-center gap-1">
+                      <div className="d-flex justify-content-between align-items-center flex-wrap flex-lg-nowrap gap-4">
+                        <div className="d-flex align-items-center gap-1 w-100">
                           <img src={signUp} alt="" />
                           <input
-                            className="form-control"
+                            className="form-control w-100"
                             type="email"
                             name="email"
                             value={email}
@@ -474,7 +474,7 @@ const Header = () => {
                                       setShowPassword(!showPassword)
                                     }
                                     className="position-absolute end-0 img-fluid mb-2"
-                                    src={showPassword ? grayeye : eye}
+                                    src={showPassword ? eye : grayeye}
                                     alt=""
                                   />
                                 </div>
