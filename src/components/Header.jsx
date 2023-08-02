@@ -233,7 +233,7 @@ const Header = () => {
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img style={{ height: "51px", width: "164px" }} src={logo} alt="" />
+            <img style={{ width: "164px" }} src={logo} alt="" />
           </Link>
           <button
             // ref={hamburgerRef}
