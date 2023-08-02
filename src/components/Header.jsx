@@ -359,7 +359,8 @@ const Header = () => {
                     <p>
                       Not a member yet?
                       <a
-                        href=""
+                        className="ms-2"
+                        href="#"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal_1"
                       >
