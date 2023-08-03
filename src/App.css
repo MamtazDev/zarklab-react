@@ -820,6 +820,7 @@ body {
   font-weight: 500;
   line-height: normal;
   margin-bottom: 20px;
+  margin-top: 200px;
 }
 
 .faq p {
@@ -2008,6 +2009,8 @@ input:focus-visible {
   .faq h1 {
     font-size: 24px;
     margin-bottom: 20px;
+    margin-top: 0;
+
   }
 
   .faq p {
