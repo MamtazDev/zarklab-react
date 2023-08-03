@@ -48,6 +48,7 @@ const Header = () => {
   const [signInValue, setSignInValue] = useState({});
   const [signUPValue, setSignUpValue] = useState({});
   const [signInError, setSignInError] = useState("");
+  const [signUpError, setSignupError] = useState("");
 
   const [isOtpVerified, setIsOtpVerified] = useState(false);
 
@@ -182,14 +183,17 @@ const Header = () => {
         if (result?.userSub) {
           setUserInfo(result);
           setUserSub(result?.userSub);
+          setSignupError("");
           setModalStep(2);
         }
         console.log(result);
       } catch (error) {
+        const message = `${error}`;
+        const errorMessage = message.split(":")[1].trim();
+        setSignupError(errorMessage);
         console.log(error);
       }
     }
-    setModalStep(2);
   };
 
   console.log(signUPValue);
@@ -554,6 +558,7 @@ const Header = () => {
                         </div>
                       )}
                     </form>
+                    <p className="text-danger">{signUpError}</p>
                   </div>
                 </>
               )}
