@@ -35,7 +35,7 @@ const Header = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [userSub, setUserSub] = useState(null);
 
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, signUpRef, email, setEmail } = useContext(AuthContext);
   const [addBg, setAddBg] = useState(false);
   const [modalStep, setModalStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +43,7 @@ const Header = () => {
   const [userName, setUserName] = useState(false);
   const [password, setPassword] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const [email, setEmail] = useState("");
+
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [signInValue, setSignInValue] = useState({});
   const [signUPValue, setSignUpValue] = useState({});
@@ -73,18 +73,20 @@ const Header = () => {
       inputRefs.current[index + 1].focus();
     }
 
-    console.log(index, "inddd");
-
     if (index === 5) {
       const code = newOtp.join("");
       const username = email;
       try {
         const result = await Auth.confirmSignUp(username, code);
         if (result === "SUCCESS") {
+          setSignupError("");
           setIsOtpVerified(true);
         }
       } catch (error) {
-        console.log("error confirming sign up", error);
+        const message = `${error}`;
+        const errorMessage = message.split(":")[1].trim();
+        setSignupError(errorMessage);
+        console.log(error);
       }
     }
   };
@@ -196,8 +198,6 @@ const Header = () => {
     }
   };
 
-  console.log(signUPValue);
-
   const signInHandler = async (event) => {
     event.preventDefault();
     try {
@@ -214,8 +214,10 @@ const Header = () => {
         );
       }
     } catch (error) {
-      console.log("error signing in", error);
-      setSignInError("Wrong password. Try again");
+      console.log(error);
+      const message = `${error}`;
+      const errorMessage = message.split(":")[1].trim();
+      setSignInError(errorMessage);
     }
   };
 
@@ -284,6 +286,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <a
+                  ref={signUpRef}
                   onClick={() => {
                     hamburgerRef.current.click();
                   }}
@@ -442,7 +445,7 @@ const Header = () => {
                           />
                         </div>
                         {/* {!isEmailValid && <p className="text-white">email is not valid</p> } */}
-                        {!isEmailValid ? (
+                        {!isEmailValid && !email ? (
                           // <p className="text-white"></p>""
                           ""
                         ) : (
@@ -611,6 +614,7 @@ const Header = () => {
                         />
                       ))}
                     </div>
+                    <p className="text-danger">{signUpError}</p>
 
                     {!isOtpVerified && (
                       <div>

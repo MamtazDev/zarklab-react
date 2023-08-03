@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import socialMedia from "../assets/image/social-media.png";
+import { AuthContext } from "../contexts/AuthContext";
 
 const SocialMedia = () => {
-  return (
+  const { email, setEmail, signUpRef } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    signUpRef.current.click();
+  };
+
+   return (
     <section
       data-aos="fade-up"
       data-aos-duration="1000"
@@ -24,10 +32,15 @@ const SocialMedia = () => {
               src={socialMedia}
               alt=""
             />
-            <div className="signUp">
-              <input type="email" placeholder="Email Address" />
-              <button>Sign up</button>
-            </div>
+            <form className="signUp" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Email Address"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button type="submit">Sign up</button>
+            </form>
           </div>
           <div className="col-12 col-lg-6">
             <img

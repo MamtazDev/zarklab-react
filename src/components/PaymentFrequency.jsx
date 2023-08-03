@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 const PaymentFrequency = () => {
-  const [duration, setDuration] = useState("monthly");
+  const { duration, setDuration } = useContext(AuthContext);
 
   return (
     <div className="payment">

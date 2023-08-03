@@ -24,6 +24,7 @@ const PasswordForgetModal = ({
   const [isValid, setIsValid] = useState(false);
   const [isMatched, setIsMatched] = useState(false);
   const [username, setUserName] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const closeSignInModal = useRef(null);
 
@@ -32,9 +33,13 @@ const PasswordForgetModal = ({
       try {
         const data = await Auth.forgotPassword(username);
         if (data) {
+          setErrorMessage("");
           setModalStep((prev) => prev + 1);
         }
       } catch (err) {
+        const message = `${err}`;
+        const errorMessage = message.split(":")[1].trim();
+        setErrorMessage(errorMessage);
         console.log(err);
       }
     }
@@ -64,8 +69,6 @@ const PasswordForgetModal = ({
     if (value !== "" && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }
-
-    console.log(index, "inddd");
   };
 
   const handleKeyDown = (index, e) => {
@@ -114,12 +117,16 @@ const PasswordForgetModal = ({
       const data = await Auth.forgotPasswordSubmit(username, code, newPassword);
       //   closeSignInModal.current.click();
       if (data === "SUCCESS ") {
+        setErrorMessage("");
         closeSignInModal.current.click();
         window.location.replace(
           "https://zarklab-dashboard-new-pro.vercel.app/token"
         );
       }
     } catch (err) {
+      const message = `${err}`;
+      const errorMessage = message.split(":")[1].trim();
+      setErrorMessage(errorMessage);
       console.log(err);
     }
   };
@@ -162,7 +169,7 @@ const PasswordForgetModal = ({
                     onChange={(e) => setUserName(e.target.value)}
                   />
                 </div>
-
+                <p className="text-danger">{errorMessage}</p>
                 <div className="sign_in_btn text-center">
                   <button onClick={handleNext} style={{ marginBottom: "24px" }}>
                     Retrieve Password
@@ -343,6 +350,7 @@ const PasswordForgetModal = ({
                         </div>
                       </div>
                     </div>
+                    <p className="text-danger">{errorMessage}</p>
                     <div
                       className="d-flex justify-content-center"
                       style={{ marginTop: "30px" }}
