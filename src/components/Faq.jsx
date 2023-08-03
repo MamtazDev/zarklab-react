@@ -4,10 +4,13 @@ const Faq = () => {
   return (
     <div className="faq">
       <div className="container">
-        <div className="row align-items-center">
-          <div data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-easing="linear" className="col-12 col-lg-6">
+        <div className="row">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            data-aos-easing="linear"
+            className="col-12 col-lg-6"
+          >
             <h1>Frequently Asked Questions</h1>
             <p>
               If you have further questions, please drop us an email at
@@ -18,9 +21,12 @@ const Faq = () => {
               <button className="contact_btn">Contact Us</button>
             </a>
           </div>
-          <div data-aos="fade-left"
-        data-aos-duration="1000"
-        data-aos-easing="linear" className="col-12 col-lg-6">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            data-aos-easing="linear"
+            className="col-12 col-lg-6"
+          >
             <div className="faq_accordion">
               <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
