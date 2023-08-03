@@ -2,6 +2,7 @@ import {CardNumberElement, CardExpiryElement, CardCvcElement, useStripe, useElem
 import { createPaymentIntent } from "./createPayment";
 import CustomCard from "./CustomCard";
 import { useState } from "react";
+import { redirect } from 'react-router-dom';
 
 // padding: 25px 20px;
 //     border-radius: 8px;
@@ -69,7 +70,12 @@ const PaymentForm = () => {
       }
     );
 
-    console.log('paymentdone ',paymentIntent)
+    console.log('paymentdone ',paymentIntent);
+    alert("Your payment done successfully")
+  
+    redirect('/')
+
+   
 
     if (error) {
       setError(error?.message)
@@ -82,6 +88,8 @@ const PaymentForm = () => {
 
   return (
     <div>
+
+
                  {
                 error && (
                   <div className="toast-body text-white fs-5">

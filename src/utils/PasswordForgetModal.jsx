@@ -244,7 +244,7 @@ const PasswordForgetModal = ({
                             <img
                               onClick={() => setShowPassword(!showPassword)}
                               className="position-absolute end-0 img-fluid mb-2"
-                              src={showPassword ? grayeye : eye}
+                              src={showPassword ? eye : grayeye}
                               alt=""
                             />
                           </div>
@@ -313,7 +313,7 @@ const PasswordForgetModal = ({
                                 setShowReEnterPassword(!showReEnterPassword)
                               }
                               className="position-absolute end-0 img-fluid mb-2"
-                              src={showReEnterPassword ? grayeye : eye}
+                              src={showPassword ? eye : grayeye}
                               alt=""
                             />
                           </div>

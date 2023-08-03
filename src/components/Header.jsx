@@ -47,6 +47,7 @@ const Header = () => {
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [signInValue, setSignInValue] = useState({});
   const [signUPValue, setSignUpValue] = useState({});
+  const [signInError, setSignInError] = useState("");
 
   const [isOtpVerified, setIsOtpVerified] = useState(false);
 
@@ -200,7 +201,9 @@ const Header = () => {
       const password = signInValue?.password;
 
       const user = await Auth.signIn(username, password);
+
       if (user) {
+        setSignInError("");
         closeSignInModal.current.click();
         window.location.replace(
           "https://zarklab-dashboard-new-pro.vercel.app/token"
@@ -208,9 +211,8 @@ const Header = () => {
       }
     } catch (error) {
       console.log("error signing in", error);
+      setSignInError("Wrong password. Try again");
     }
-
-    console.log(signInValue, "signin");
   };
 
   useEffect(() => {
@@ -231,7 +233,7 @@ const Header = () => {
       <nav className={`${addBg ? "bg-black" : ""} navbar navbar-expand-lg `}>
         <div className="container">
           <Link className="navbar-brand" to="/">
-            <img style={{ height: "51px", width: "164px" }} src={logo} alt="" />
+            <img style={{ width: "164px" }} src={logo} alt="" />
           </Link>
           <button
             // ref={hamburgerRef}
@@ -340,7 +342,7 @@ const Header = () => {
                       style={{ cursor: "pointer" }}
                       onClick={() => setShowPassword(!showPassword)}
                       className="position-absolute end-0 img-fluid mb-2"
-                      src={showPassword ? grayeye : eye}
+                      src={showPassword ? eye : grayeye}
                       alt=""
                     />
                   </div>
@@ -352,11 +354,13 @@ const Header = () => {
                     Forgot password?
                   </a>
                   <div className="d-flex justify-content-between align-items-center sign_in_btn">
+                    <p className="text-danger">{signInError}</p>
                     <button type="submit">Sign in</button>
                     <p>
                       Not a member yet?
                       <a
-                        href=""
+                        className="ms-2"
+                        href="#"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal_1"
                       >
@@ -421,11 +425,11 @@ const Header = () => {
 
                     <form onSubmit={signUpHandler}>
                       <label className="form-label">Enter your email*</label>
-                      <div className="d-flex justify-content-between align-items-center flex-wrap gap-4">
-                        <div className="d-flex align-items-center gap-1">
+                      <div className="d-flex justify-content-between align-items-center flex-wrap flex-lg-nowrap gap-4">
+                        <div className="d-flex align-items-center gap-1 w-100">
                           <img src={signUp} alt="" />
                           <input
-                            className="form-control"
+                            className="form-control w-100"
                             type="email"
                             name="email"
                             value={email}
@@ -471,7 +475,7 @@ const Header = () => {
                                       setShowPassword(!showPassword)
                                     }
                                     className="position-absolute end-0 img-fluid mb-2"
-                                    src={showPassword ? grayeye : eye}
+                                    src={showPassword ? eye : grayeye}
                                     alt=""
                                   />
                                 </div>
