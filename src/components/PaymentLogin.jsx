@@ -16,7 +16,18 @@ const PaymentLogin = () => {
       const username = signInValue?.email;
       const password = signInValue?.password;
 
+      console.log(username, "userrrename");
+      console.log(password, "passs");
+
       const user = await Auth.signIn(username, password);
+
+      if (user) {
+        setSignInError("");
+
+        window.location.replace(
+          "https://zarklab-dashboard-new-pro.vercel.app/token"
+        );
+      }
     } catch (error) {
       console.log(error);
       const message = `${error}`;
@@ -32,6 +43,8 @@ const PaymentLogin = () => {
     });
   };
 
+  console.log(signInValue, "fjksfjkjs");
+
   return (
     <div className="payment_login">
       <h6>Log in to your account</h6>
@@ -45,6 +58,7 @@ const PaymentLogin = () => {
             <input
               className="w-100"
               type="email"
+              name="email"
               value={signInValue.email}
               onChange={handlesignInChange}
             />
@@ -55,6 +69,7 @@ const PaymentLogin = () => {
               <input
                 className="w-100"
                 type={showPassword ? "text" : "password"}
+                name="password"
                 value={signInValue.password}
                 onChange={handlesignInChange}
               />
@@ -71,6 +86,7 @@ const PaymentLogin = () => {
         <button type="submit" className="continue_btn mt-4">
           Log In
         </button>
+        <p className="warning_sms mt-2">{signInError}</p>
       </form>
     </div>
   );
