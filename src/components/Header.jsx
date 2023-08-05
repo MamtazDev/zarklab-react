@@ -109,23 +109,34 @@ const Header = () => {
   };
 
   const validatePassword = (value) => {
-    const passwordRegex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*\d)/;
     return passwordRegex.test(value);
   };
 
+  // const getPasswordStrengthLabel = (value) => {
+  //   if (value.length === 0) {
+  //     return "Please enter a password";
+  //   } else if (value.length < 6) {
+  //     return "Password is weak";
+  //   } else if (value.length < 8) {
+  //     return "Password is medium";
+  //   } else if (value.length === 8 && !isValid) {
+  //     return "Invalid password";
+  //   } else if (value.length === 8 && isValid) {
+  //     return "Password is strong";
+  //   } else {
+  //     return "Invalid password";
+  //   }
+  // };
   const getPasswordStrengthLabel = (value) => {
     if (value.length === 0) {
       return "Please enter a password";
+    } else if (!validatePassword(value)) {
+      return "Invalid password";
     } else if (value.length < 6) {
       return "Password is weak";
-    } else if (value.length < 8) {
-      return "Password is medium";
-    } else if (value.length === 8 && !isValid) {
-      return "Invalid password";
-    } else if (value.length === 8 && isValid) {
+    } else if (value.length >= 6) {
       return "Password is strong";
-    } else {
-      return "Invalid password";
     }
   };
 
@@ -361,7 +372,6 @@ const Header = () => {
                     Forgot password?
                   </a>
                   <div className="d-flex justify-content-between align-items-center sign_in_btn">
-                    <p className="text-danger">{signInError}</p>
                     <button type="submit">Sign in</button>
                     <p>
                       Not a member yet?
@@ -375,6 +385,7 @@ const Header = () => {
                       </a>
                     </p>
                   </div>
+                  <p className="text-danger">{signInError}</p>
                   <hr />
                   <h3>Or sign in with</h3>
                   <div className="d-flex justify-content-between align-items-center social_login">

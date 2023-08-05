@@ -10,6 +10,7 @@ import CustomCard from "./CustomCard";
 import { useContext, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import warning from "../../assets/image/warning.png";
 
 // padding: 25px 20px;
 //     border-radius: 8px;
@@ -98,7 +99,6 @@ const PaymentForm = () => {
       alert("Your payment done successfully");
       setError("");
       navigate("/");
-    } else {
     }
   };
 
@@ -107,6 +107,12 @@ const PaymentForm = () => {
       <div className="form_data" id="card-number">
         <label className="form-label">Card Number</label>
         <CardNumberElement options={CARD_OPTIONS} />
+        {error && (
+          <div className="toast-body warning_sms mt-2 d-flex align-items-center gap-2">
+            <img src={warning} alt="" />
+            {error}
+          </div>
+        )}
       </div>
 
       <div className="d-lg-flex justify-content-between">
@@ -176,7 +182,7 @@ const PaymentForm = () => {
           />
         </div>
       </div>
-      {error && <div className="toast-body text-white fs-5">{error}</div>}
+
       <div className="submit_btn">
         <button
           type="button"

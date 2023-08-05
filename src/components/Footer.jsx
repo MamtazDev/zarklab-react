@@ -1,17 +1,19 @@
 import React from "react";
 import logo from "../assets/image/logo.png";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
   const location = useLocation();
   return (
-    <footer data-aos="fade-up"
-    data-aos-duration="1000"
-    data-aos-easing="linear">
+    <footer>
       <div className="container">
         {location.pathname !== "/payment" && (
           <>
-            <img style={{ height: "51px", width: "164px" }} src={logo} alt="" />
+            <Link to="/">
+              {" "}
+              <img style={{ width: "164px" }} src={logo} alt="" />
+            </Link>
+
             <h6>
               A Trusted Blockchain Platform to protect the <br /> community, one
               user at a time.
