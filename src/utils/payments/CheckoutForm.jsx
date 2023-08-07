@@ -145,12 +145,14 @@ const PaymentForm = () => {
             type="text"
             placeholder="First Name*"
             onChange={(e) => setFirstName(e.target.value)}
+            autoComplete="off"
           />
           <input
             className="form-control"
             type="text"
             placeholder="Last Name*"
             onChange={(e) => setLastName(e.target.value)}
+            autoComplete="off"
           />
         </div>
 
@@ -159,12 +161,14 @@ const PaymentForm = () => {
           type="text"
           placeholder="Address (P.O. box, company name, c/o)*"
           onChange={(e) => setAddress(e.target.value)}
+          autoComplete="off"
         />
         <input
           className="form-control"
           type="text"
           placeholder="Address line 2 (Apartment, suite, unit)"
           onChange={(e) => setAddressLine(e.target.value)}
+          autoComplete="off"
         />
 
         <div className="d-flex bill_input">
@@ -173,12 +177,14 @@ const PaymentForm = () => {
             type="number"
             placeholder="Postal Code*"
             onChange={(e) => setPostCode(e.target.value)}
+            autoComplete="off"
           />
           <input
             className="form-control"
             type="text"
             placeholder="Country*"
             onChange={(e) => setCountry(e.target.value)}
+            autoComplete="off"
           />
         </div>
       </div>

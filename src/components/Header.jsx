@@ -344,7 +344,7 @@ const Header = () => {
                       value={signInValue.email}
                       onChange={handlesignInChange}
                       placeholder="Email"
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                   </div>
                   <div className="d-flex align-items-center gap-1 mb-2 position-relative">
@@ -356,7 +356,7 @@ const Header = () => {
                       name="password"
                       value={signInValue.password}
                       onChange={handlesignInChange}
-                      autocomplete="off"
+                      autoComplete="off"
                     />
                     <img
                       style={{ cursor: "pointer" }}
@@ -456,7 +456,7 @@ const Header = () => {
                             value={email}
                             onChange={handleEmail}
                             placeholder="Email"
-                            autocomplete="off"
+                            autoComplete="off"
                           />
                         </div>
                         {/* {!isEmailValid && <p className="text-white">email is not valid</p> } */}
@@ -490,7 +490,7 @@ const Header = () => {
                                     value={password}
                                     onChange={handlePasswordChange}
                                     placeholder="*******"
-                                    autocomplete="off"
+                                    autoComplete="off"
                                   />
                                   <img
                                     onClick={() =>
@@ -566,7 +566,7 @@ const Header = () => {
                                   className="form-control"
                                   type="text"
                                   onChange={(e) => setUser(e.target.value)}
-                                  autocomplete="off"
+                                  autoComplete="off"
                                 />
                               </div>
                               <button type="submit" className="userName_btn">
@@ -627,7 +627,7 @@ const Header = () => {
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
                           ref={(ref) => (inputRefs.current[index] = ref)}
-                          autocomplete="off"
+                          autoComplete="off"
                         />
                       ))}
                     </div>

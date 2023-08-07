@@ -38,6 +38,7 @@ const SocialMedia = () => {
                 placeholder="Email Address"
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="off"
               />
               <button type="submit">Sign up</button>
             </form>

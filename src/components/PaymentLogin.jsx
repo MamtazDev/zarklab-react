@@ -61,6 +61,7 @@ const PaymentLogin = () => {
               name="email"
               value={signInValue.email}
               onChange={handlesignInChange}
+              autoComplete="off"
             />
           </div>
           <div className="col-12 col-lg-6">
@@ -72,6 +73,7 @@ const PaymentLogin = () => {
                 name="password"
                 value={signInValue.password}
                 onChange={handlesignInChange}
+                autoComplete="off"
               />
               <img
                 onClick={() => setShowPassword(!showPassword)}

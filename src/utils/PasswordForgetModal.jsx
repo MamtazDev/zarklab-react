@@ -163,10 +163,9 @@ const PasswordForgetModal = ({
                   <input
                     className="form-control"
                     type="email"
-                    name=""
-                    id=""
                     placeholder="Email"
                     onChange={(e) => setUserName(e.target.value)}
+                    autoComplete="off"
                   />
                 </div>
                 <p className="text-danger">{errorMessage}</p>
@@ -222,6 +221,7 @@ const PasswordForgetModal = ({
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
                           ref={(ref) => (inputRefs.current[index] = ref)}
+
                         />
                       ))}
                     </div>
@@ -247,6 +247,7 @@ const PasswordForgetModal = ({
                               maxLength={8}
                               onChange={handlePasswordChange}
                               placeholder="*******"
+                              autoComplete="off"
                             />
                             <img
                               onClick={() => setShowPassword(!showPassword)}
@@ -314,6 +315,7 @@ const PasswordForgetModal = ({
                               maxLength={8}
                               onChange={handleReEnterPassword}
                               placeholder="*******"
+                              autoComplete="off"
                             />
                             <img
                               onClick={() =>
