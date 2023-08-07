@@ -405,6 +405,20 @@ body {
   border-style: hidden !important;
 }
 
+.goo_btn {
+  border-radius: 5px;
+  background: #E5E2E2;
+  color: #161617 !important;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 6px 17px;
+  text-decoration: none;
+}
+
+.goo_btn:hover {
+  text-decoration: none !important;
+}
+
 /*Sign_in Modal End */
 
 /*Sign_up Modal Start */

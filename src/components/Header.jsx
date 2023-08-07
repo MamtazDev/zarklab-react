@@ -392,8 +392,8 @@ const Header = () => {
                     <a href="#">
                       <img className="img-fluid" src={fb} />
                     </a>
-                    <a href="#">
-                      <img className="img-fluid" src={google} />
+                    <a className="goo_btn" href="#">
+                      <img className="img-fluid" src={google} />  Sign in with Google
                     </a>
                     <a href="#">
                       <img className="img-fluid" src={metamask} />
@@ -484,7 +484,6 @@ const Header = () => {
                                     className="form-control"
                                     type={showPassword ? "text" : "password"}
                                     value={password}
-                                    maxLength={8}
                                     onChange={handlePasswordChange}
                                     placeholder="*******"
                                   />
