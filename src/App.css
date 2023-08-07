@@ -26,6 +26,16 @@ body {
   max-width: 1240px;
 }
 
+/* Firefox */
+input::-moz-placeholder {
+  background-color: transparent;
+}
+
+/* Chrome/Safari/Opera */
+input::-webkit-input-placeholder {
+  background-color: transparent;
+}
+
 .zark_front {
   background-image: url("../src/assets/image/banner.png");
   background-repeat: no-repeat;
