@@ -2448,3 +2448,8 @@ input:focus-visible {
   border-radius: 8px;
   padding: 25px 20px;
 }
+
+
+.some-paypal-button-class {
+  display: none;
+}
