@@ -10,7 +10,7 @@ const Payment = () => {
       <div className="container">
         <PaymentBanner />
         <PaymentFrequency />
-        <PaymentLogin />
+        {/* <PaymentLogin /> */}
         <PaymentDetails />
       </div>
     </section>

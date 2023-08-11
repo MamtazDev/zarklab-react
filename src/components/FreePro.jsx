@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import free from "../assets/image/free.png";
 import pro from "../assets/image/pro.png";
 import greenPoint from "../assets/image/green-point.png";
 import redPoint from "../assets/image/red-point.png";
 import rightArrow from "../assets/image/right-arrow.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
-const FreePro = () => {
+const FreePro = ({ clickedHandlerRef }) => {
+  const { user, setUser } = useContext(AuthContext);
   return (
     <section className="free_pro">
       <div className="container">
-        <div
-          className="d-flex flex-column-reverse flex-lg-row free_pro_inner"
-        >
+        <div className="d-flex flex-column-reverse flex-lg-row free_pro_inner">
           <div className="w-100 w-lg-50">
             <div className="free mb-5 pb-1">
               <div>
@@ -102,11 +102,20 @@ const FreePro = () => {
                 <h6>Advanced Filters and Customised Search</h6>
               </div>
             </div>
-            <Link to="/payment">
-              <button className="mb-5 mb-lg-0 d-flex gap-5 align-items-center">
+            {user ? (
+              <Link to="/payment">
+                <button className="mb-5 mb-lg-0 d-flex gap-5 align-items-center">
+                  Turn Pro Now <img src={rightArrow} alt="" />
+                </button>
+              </Link>
+            ) : (
+              <button
+                onClick={() => clickedHandlerRef()}
+                className="mb-5 mb-lg-0 d-flex gap-5 align-items-center"
+              >
                 Turn Pro Now <img src={rightArrow} alt="" />
               </button>
-            </Link>
+            )}
           </div>
         </div>
       </div>

@@ -111,6 +111,7 @@ const PasswordForgetModal = ({
     e.preventDefault();
 
     const code = otp.join("");
+    console.log(code);
     const newPassword = password;
 
     try {

@@ -10,7 +10,7 @@ import eye from "../assets/image/password_eye.png";
 import grayeye from "../assets/image/sign_up_pass_eye.png";
 import code from "../assets/image/enter_code.png";
 import back from "../assets/image/back_button.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { Amplify, Auth } from "aws-amplify";
 import PasswordForgetModal from "../utils/PasswordForgetModal";
@@ -29,8 +29,10 @@ const AwsConfigAuth = {
   authenticationFlowType: "USER_SRP_AUTH",
 };
 
-const Header = () => {
+const Header = ({ signinRef }) => {
   Amplify.configure({ Auth: AwsConfigAuth });
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState(null);
   const [userSub, setUserSub] = useState(null);
@@ -217,20 +219,37 @@ const Header = () => {
 
       const user = await Auth.signIn(username, password);
 
+      // console.log(user, "fksfjk");
+
       if (user) {
         setSignInError("");
+        localStorage.setItem("zarklab-user", JSON.stringify("SingedIn"));
+        setUser(true);
+
         closeSignInModal.current.click();
-        window.location.replace(
-          "https://zarklab-dashboard-new-pro.vercel.app/token"
-        );
+        location.pathname === "/pricing"
+          ? navigate("/payment")
+          : //  window.location.replace(
+            //     "https://zarklab-dashboard-new-pro.vercel.app/token"
+            //   );
+            window.open(
+              "https://zarklab-dashboard-new-pro.vercel.app/token",
+              "_blank"
+            );
       }
     } catch (error) {
       console.log(error);
       const message = `${error}`;
-      const errorMessage = message.split(":")[1].trim();
-      setSignInError(errorMessage);
+
+      if (message.includes(":")) {
+        const errorMessage = message.split(":")[1].trim();
+        setSignInError(errorMessage);
+      } else {
+        setSignInError(error);
+      }
     }
   };
+  console.log(signInError, "mohiiiiiiiiiii");
 
   useEffect(() => {
     async function checkAuth() {
@@ -252,6 +271,7 @@ const Header = () => {
           <Link className="navbar-brand" to="/">
             <img style={{ width: "164px" }} src={logo} alt="" />
           </Link>
+
           <button
             // ref={hamburgerRef}
             onClick={() => setAddBg(!addBg)}
@@ -282,6 +302,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <a
+                  ref={signinRef}
                   onClick={() => {
                     hamburgerRef.current.click();
                   }}
