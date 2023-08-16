@@ -4,6 +4,8 @@ import grayeye from "../assets/image/sign_up_pass_eye.png";
 import { AuthContext } from "../contexts/AuthContext";
 import { Auth } from "aws-amplify";
 
+const dashboard_domain = import.meta.env.VITE_dashboard_domain;
+
 const PaymentLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [signInValue, setSignInValue] = useState({});
@@ -24,9 +26,7 @@ const PaymentLogin = () => {
       if (user) {
         setSignInError("");
 
-        window.location.replace(
-          "https://zarklab-dashboard-new-pro.vercel.app/token"
-        );
+        window.location.replace(dashboard_domain);
       }
     } catch (error) {
       console.log(error);

@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
 
+const dashboard_domain = import.meta.env.VITE_dashboard_domain;
+
 const PasswordForgetModal = ({
   signUp,
   fb,
@@ -120,9 +122,7 @@ const PasswordForgetModal = ({
       if (data === "SUCCESS ") {
         setErrorMessage("");
         closeSignInModal.current.click();
-        window.location.replace(
-          "https://zarklab-dashboard-new-pro.vercel.app/token"
-        );
+        window.location.replace(dashboard_domain);
       }
     } catch (err) {
       const message = `${err}`;
@@ -222,7 +222,6 @@ const PasswordForgetModal = ({
                           onChange={(e) => handleChange(index, e.target.value)}
                           onKeyDown={(e) => handleKeyDown(index, e)}
                           ref={(ref) => (inputRefs.current[index] = ref)}
-
                         />
                       ))}
                     </div>

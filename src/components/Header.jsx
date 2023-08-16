@@ -14,19 +14,29 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { Amplify, Auth } from "aws-amplify";
 import PasswordForgetModal from "../utils/PasswordForgetModal";
+
+const AwsConfigAuth_region = import.meta.env.VITE_AwsConfigAuth_region;
+const AwsConfigAuth_userPoolId = import.meta.env.VITE_AwsConfigAuth_userPoolId;
+const mainwebsite_domain = import.meta.env.mainwebsite_domain;
+const dashboard_domain = import.meta.env.VITE_dashboard_domain;
+const AwsConfigAuth_authenticationFlowType = import.meta.env
+  .VITE_AwsConfigAuth_authenticationFlowType;
+const AwsConfigAuth_userPoolWebClientId = import.meta.env
+  .VITE_AwsConfigAuth_userPoolWebClientId;
+
 // AUTH_COOKIE_STORAGE_DOMAIN
 const AwsConfigAuth = {
-  region: "us-east-1",
-  userPoolId: "us-east-1_iJNzGNptL",
-  userPoolWebClientId: "65n2hiu49tacap7h2hbr6idmv",
+  region: AwsConfigAuth_region,
+  userPoolId: AwsConfigAuth_userPoolId,
+  userPoolWebClientId: AwsConfigAuth_userPoolWebClientId,
   cookieStorage: {
-    domain: "zarklab-react.vercel.app",
+    domain: mainwebsite_domain,
     path: "/",
     expires: 365,
     sameSite: "strict",
     secure: true,
   },
-  authenticationFlowType: "USER_SRP_AUTH",
+  authenticationFlowType: AwsConfigAuth_authenticationFlowType,
 };
 
 const Header = ({ signinRef }) => {
@@ -183,7 +193,7 @@ const Header = ({ signinRef }) => {
           password: password,
 
           attributes: {
-            preferred_username: "dihan",
+            preferred_username: userName,
             email,
           },
           autoSignIn: {
@@ -232,10 +242,7 @@ const Header = ({ signinRef }) => {
           : //  window.location.replace(
             //     "https://zarklab-dashboard-new-pro.vercel.app/token"
             //   );
-            window.open(
-              "https://zarklab-dashboard-new-pro.vercel.app/token",
-              "_blank"
-            );
+            window.open(dashboard_domain, "_blank");
       }
     } catch (error) {
       console.log(error);
