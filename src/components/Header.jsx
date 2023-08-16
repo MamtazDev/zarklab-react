@@ -256,7 +256,7 @@ const Header = ({ signinRef }) => {
       }
     }
   };
-  console.log(signInError, "mohiiiiiiiiiii");
+  // console.log(signInError, "signinerror");
 
   useEffect(() => {
     async function checkAuth() {
