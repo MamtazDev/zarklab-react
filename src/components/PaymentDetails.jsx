@@ -237,7 +237,7 @@ const PaymentDetails = () => {
           <PayPalScriptProvider
             ref={paypalBtnRef}
             options={{
-              "client-id": import.meta.env.VITE_clientId,
+              "client-id": import.meta.env.VITE_PAYPAL_CLIENTID,
               "disable-funding": "paylater",
             }}
           >
