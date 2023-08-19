@@ -21,6 +21,7 @@ const YourComponent = () => {
     actions.order.capture().then(function (details) {
       // Successful payment, you can do something here
       console.log("Payment completed: ", details);
+      
     });
   };
 

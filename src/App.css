@@ -2453,3 +2453,28 @@ input:focus-visible {
 .some-paypal-button-class {
   display: none;
 }
+
+
+.payy {
+  color: #FFF;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 32px;
+}
+
+.pay_btn {
+  border-radius: 5px;
+  border: 1px solid #14F092;
+  background: #14F092 !important;
+  color: #181818 !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  line-height: 130%;
+  padding: 10px 30px !important;
+  margin-bottom: 40px !important;
+}
+
+.payment .modal-dialog {
+  max-width: 592px;
+}
