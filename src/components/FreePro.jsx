@@ -102,20 +102,20 @@ const FreePro = ({ clickedHandlerRef }) => {
                 <h6>Advanced Filters and Customised Search</h6>
               </div>
             </div>
-            {user ? (
+            {/* {user ? ( */}
               <Link to="/payment">
                 <button className="mb-5 mb-lg-0 d-flex gap-5 align-items-center">
                   Turn Pro Now <img src={rightArrow} alt="" />
                 </button>
               </Link>
-            ) : (
+            {/* ) : (
               <button
                 onClick={() => clickedHandlerRef()}
                 className="mb-5 mb-lg-0 d-flex gap-5 align-items-center"
               >
                 Turn Pro Now <img src={rightArrow} alt="" />
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </div>

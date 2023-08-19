@@ -7,10 +7,12 @@ import {
 } from "@stripe/react-stripe-js";
 import { createPaymentIntent } from "./createPayment";
 import CustomCard from "./CustomCard";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { redirect, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import warning from "../../assets/image/warning.png";
+import success from "../../assets/image/paymentSuccess.png";
+import cross from "../../assets/image/cross.png";
 
 // padding: 25px 20px;
 //     border-radius: 8px;
@@ -96,11 +98,20 @@ const PaymentForm = () => {
       setIsProcessing(false);
       // Payment succeeded, handle success
       console.log("paymentdone ", paymentIntent);
-      alert("Your payment done successfully");
+      // alert("Your payment done successfully");
+
+      creditButtonRef.current.click();
+
       setError("");
       navigate("/");
     }
   };
+
+  useEffect(() => {
+    // creditButtonRef.current.click()
+  }, []);
+
+  const creditButtonRef = useRef();
 
   return (
     <div>
@@ -114,7 +125,6 @@ const PaymentForm = () => {
           </div>
         )}
       </div>
-
       <div className="d-lg-flex justify-content-between">
         <div className="form_data">
           <label className="form-label">Expiration Date (MM/ YY)</label>
@@ -126,7 +136,6 @@ const PaymentForm = () => {
           <CardCvcElement options={CARD_OPTIONS} />
         </div>
       </div>
-
       <div className="billing_information">
         <h3>Billing information</h3>
         <p>Please confirm your billing details to proceed. </p>
@@ -188,7 +197,6 @@ const PaymentForm = () => {
           />
         </div>
       </div>
-
       <div className="submit_btn">
         <button
           type="button"
@@ -198,7 +206,45 @@ const PaymentForm = () => {
           Pay Now
         </button>
       </div>
-
+      <button
+        ref={creditButtonRef}
+        type="button"
+        className="btn btn-primary d-none"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        Launch static backdrop modal
+      </button>
+      {/* <!-- Modal --> */}
+      <div
+        className="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <button
+              type="button"
+              className="btn-close ms-auto pe-4 pt-2"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <img src={cross} alt="" />
+            </button>
+            <div className="modal-body text-center">
+              <img className="img-fluid" src={success} alt="" />
+              <p className="payy">Payment Successful!</p>
+              <button type="button" className="pay_btn">
+                Enter ZarkLab
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* <button disabled={!stripe} onClick={handlePayment}>Pay with Stripe</button> */}
     </div>
   );
